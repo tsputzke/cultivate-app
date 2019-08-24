@@ -1,68 +1,88 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# cultivate-node-capstone
+A data logging application to track environmental factors for plant and mushroom grow spaces.
 
-## Available Scripts
+# insight•full
 
-In the project directory, you can run:
+The insight•full app allows you to track your meditation sessions and add insights on how your session went. You can then view your practice over time and read your journal of insights gained during your sessions.
 
-### `npm start`
+### Working Prototype
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+View Node working prototype here: [insight•full](https://meditation-tracker.herokuapp.com/) 
+View React working prototype here: [insight•full](https://jes-a.github.io/meditation-app-fullstack-capstone-react/build)  
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+## Site Map: MVP 
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Site Map](/screenshots/designs/site-map.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## UX & User Stories: MVP
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+**Landing Page** 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+As a user, I want to understand what the app is so that I can decide if I want to sign up
+As a user, I want to understand what the app is so that I can decide if I want to sign up
+As a user, I want to understand what the app is so that I can decide if I want to sign up
+As a user, I want to understand what the app is so that I can decide if I want to sign up
 
-### `npm run eject`
+![Landing/ Login/ Member/ Room Data Wireframe](/readme-images/landing-login-member-room.jpg)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+As a user, I want to understand what the app is so that I can decide if I want to sign up
+As a user, I want to understand what the app is so that I can decide if I want to sign up
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Add Data/ View Data Wireframe](/readme-images/add-data-view-data.jpg)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Designs
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Landing Page** 
 
-## Learn More
+![Landing Page Design](/screenshots/designs/landing.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Screenshots: MVP
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Landing Page](/screenshots/landing-page.png)
 
-### Code Splitting
+## Technical
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Meditation Tracker was built with: 
 
-### Analyzing the Bundle Size
+#### Front End
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+* HTML5
+* CSS3
+* JavaScript 
+* React
 
-### Making a Progressive Web App
+#### Back End 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+* Node.js 
+* Express.js
+* PostgreSQL
+* Mocha and Chai for testing
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Responsive
+This app is built to be responsive to smaller screen sizes using a float-grid css and media screen width breakpoint of 700px for smaller screen sizes
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+## Development Road Map
+Features for future iterations include: 
+- Add ability to view one insight entry on a separate page
+- Add filter to Insights page to filter by time, app, date
+- Add links to meditation resources
+- Add an app timer to meditate with
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+#  The typical command lines for capstone projects
+
+## Node command lines
+* npm install ==> install all node modules
+* nodemon server.js ==> run node server
+* npm test ==> run the tests
+
+## React command lines
+* npm install ==> install all node modules
+* npm run build ==> build the react files in the "build" folder
+* npm start ==> run react server on http://127.0.0.1:8080
+* npm test ==> run the tests
