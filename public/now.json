@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "alias": "tsputzke-cultivate-app",
+  "name": "cultivate-app",
+  "routes": [
+      {
+        "src": "^/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": ".*",
+        "dest": "/index.html"
+      }
+  ]
+}
