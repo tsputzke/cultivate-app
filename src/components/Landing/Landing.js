@@ -18,7 +18,7 @@ export default class Landing extends Component {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue eu consequat ac felis donec et odio. Nulla aliquet enim tortor at. Sed adipiscing diam donec adipiscing tristique risus nec. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Proin fermentum leo vel orci porta non. 
         </p>
         <section id="landing-section">
-          <h2>Sign-in</h2>
+          <h2 className="form-title">Sign-in:</h2>
           <form id="signin-form"> 
             <div>
               <label htmlFor="username">Username: </label>

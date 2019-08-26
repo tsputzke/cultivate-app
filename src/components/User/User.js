@@ -12,7 +12,7 @@ export default class User extends Component {
         </header>
         <h1 id="user-header">Hello, NAME</h1>
         <section id="user-section">
-          <h2>Create Room</h2>
+          <h2 className="form-title">Create Room:</h2>
           <form id="create-room-form">
             <div>
               <label htmlFor="name">Room Name: </label>

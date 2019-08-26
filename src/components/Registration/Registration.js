@@ -11,7 +11,7 @@ export default class Registration extends Component {
           <Nav navRight="Sign In" navLink=""/>
         </header>
         <section id="registration-section">
-          <h1>Register</h1>
+          <h1 className="form-title">Register:</h1>
           <form id="registration-form">
             <div>
               <label htmlFor="username">Username: </label>
