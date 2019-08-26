@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+.add-data {
+  margin: auto;
+  padding-top: 200px;
+  line-height: 1.5;
+  width: 80%;
+}
+
+#add-data-section {
+  padding: 20px;
+  text-align: center;
+  margin: auto;
+  border: 1px solid black;
+  width: 500px;
+  height: 500px;
+}
+
+#comments-textbox {
+  height: 200px;
+  width: 400px;
+}

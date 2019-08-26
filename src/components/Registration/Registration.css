@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+.registration {
+  margin: auto;
+  padding-top: 200px;
+  line-height: 1.5;
+  width: 80%;
+}
+
+#registration-section {
+  padding: 20px;
+  text-align: center;
+  margin: auto;
+  border: 1px solid black;
+  width: 300px;
+  height: 250px;
+}
+
+#new-user-button {
+  border: 3px solid red;
+}

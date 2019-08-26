@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+}
+
+.room-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.room {
+  margin: auto;
+  padding-top: 100px;
+  line-height: 1.5;
+  width: 95%;
+}
+
+#logbook-header, .log {
+  padding-bottom: 15px;
+  border-bottom: 1px solid black;
+}
+
+#logbook-div {
+  text-align: center;
+  border: 1px solid black;
+  width: 350px;
+  height: 100%;
+  margin: auto;
+}
+
+#flex-section {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#chart {
+  padding-top: 80px;
+  text-align: center;
+  width: 350px;
+  height: 250px;
+  background-color: #aaa;
+  margin: auto;
+  border: 1px solid black;
+}
+
+#right-div {
+  width: 100%;
+  text-align: center;
+}
+
+#right-div ul {
+  margin: auto;
+  text-align: left;
+  width: 250px;
+  list-style: none;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.data-button {
+  margin: 20px 0;
+  padding: 15px;
+  font-size: 1.2em;
+  border: 3px solid red;
+}
