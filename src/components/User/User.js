@@ -22,7 +22,7 @@ export default class User extends Component {
               <label htmlFor="description">Description: </label>
               <input type="text" name="description" />
             </div>
-            <button type="submit">Submit</button>
+            <Link to='/user/1/room/1'><button className="new-room-button">Submit</button></Link>
           </form>
         </section>
         <section id="existing-rooms">
