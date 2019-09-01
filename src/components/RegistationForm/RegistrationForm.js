@@ -1,11 +1,27 @@
 import React, { Component } from 'react'
 
 export default class RegistrationForm extends Component {
+  state = { userAdded: false }
+
+  // componentDidUpdate() {
+  //   if(this.state === ({userAdded: true})) {
+  //     console.log('state is updated')
+  //   }
+  // }
+  
   handleNewUser = e => {
     e.preventDefault()
 
     const user_name = e.target.user_name.value;
     const password = e.target.password.value;
+    const confirm_password = e.target.confirm_password.value;
+
+    //check passwords
+
+    //check passwords match
+    if (password !== confirm_password) {
+      alert('Passwords must match')
+    }
 
     //validate the input
     if (user_name === "") {
@@ -19,9 +35,7 @@ export default class RegistrationForm extends Component {
       password: password
     };
 
-    console.log(newUserObject)
-
-  fetch(`http://localhost:8000/api`, {
+  fetch(`http://localhost:8000/api/users`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -29,10 +43,15 @@ export default class RegistrationForm extends Component {
     body: JSON.stringify(newUserObject),
   })
   //if call is successfull
-  .then(res => console.log(res))
+  .then(res => {
+    console.log('state before:', this.state)
+    this.setState({ userAdded: true })
+    console.log('state after:', this.state)
+  })
   //if the call is failing
   .catch(err => console.log(err));
 }
+
   render() {
     return (
       <section id="registration-section">
@@ -50,8 +69,8 @@ export default class RegistrationForm extends Component {
               <input type="password" name="password" required />
             </div>
             <div>
-              <label htmlFor="confirm-password">Confirm Password: </label>
-              <input type="password" name="confirm-password" required />
+              <label htmlFor="confirm_password">Confirm Password: </label>
+              <input type="password" name="confirm_password" required />
             </div>
             <button id="new-user-button" type="submit">Submit</button>
           </form>

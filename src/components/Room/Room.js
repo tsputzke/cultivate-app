@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
-import NavBack from '../NavBack/NavBack';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import DataCharts from './DataChart/DataCharts'
 import '../Room/Room.css'
 
 export default class Room extends Component {
   render() {
+    // Colors for chart
+    const chartColors = ['#f00', '#0f0', '#00f', '#0ff'];
+
+    // Insert chart colors into 'highs, lows' display
+    function style(index) {
+      return {color: chartColors[index]}
+    }
+
     return (
       <div className='room'>
-        <header id="nav=header">
-          <NavBack navBack='/user/1'/>
-        </header>
         <h1 className='room-title'>Example Room</h1>
         <section id="flex-section">
           <div id="logbook-div">
@@ -21,13 +26,12 @@ export default class Room extends Component {
             <section className="log"><h3>April 7</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue eu consequat ac felis donec et odio. Nulla aliquet enim tortor at. Sed adipiscing diam donec adipiscing tristique risus nec. </p></section>
           </div>
           <div id="right-div">
-            <div id="chart"><h2>Data Chart</h2></div>
-            <h3>Weekly Lows and Highs:</h3>
+            <DataCharts chartColors={chartColors} />
             <ul>
-              <li><strong>Tempature (C): </strong>19, 25</li>
-              <li><strong>rH (%): </strong>64, 81</li>
-              <li><strong>CO2 (ppm): </strong>445, 560</li>
-              <li><strong>Light (umol/m2/s): </strong>0, 168</li>
+              <li><span style={style(0)}>---- </span><strong>Temp (C): </strong>19, 25</li>
+              <li><span style={style(1)}>---- </span><strong>rH (%): </strong>64, 81</li>
+              <li><span style={style(2)}>---- </span><strong>CO<sub>2</sub> (ppm): </strong>445, 560</li>
+              <li><span style={style(3)}>---- </span><strong>Light (PPFD): </strong>0, 168</li>
             </ul>
             
             <Link to='/user/:userid/room/:roomid/add-data'><button className="data-button">Add Data</button></Link>

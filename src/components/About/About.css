@@ -13,3 +13,9 @@
   min-height: 200px;
   width: 80%;
 }
+
+.back-button {
+  display: block;
+  margin: auto;
+  font-size: 1.2em;
+}

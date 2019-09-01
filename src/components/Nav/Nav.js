@@ -8,7 +8,7 @@ export default class Nav extends Component {
       <nav className='nav'>
         <ul className='nav-links'>
           <li id="nav-button-left"><Link to='/about'>About</Link></li>
-          <li id="nav-button-right"><Link to={this.props.navLink}>{this.props.navRight}</Link></li>
+          <li id="nav-button-right"><Link to='/'>Sign Out</Link></li>
         </ul>
       </nav>
     )

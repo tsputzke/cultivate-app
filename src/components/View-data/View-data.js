@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
-import NavBack from '../NavBack/NavBack';
 import '../View-data/View-data.css'
 
 export default class ViewData extends Component {
   render() {
     return (
       <section className='view-data'>
-        <header id="nav=header">
-          <NavBack navBack='/user/1/room/1'/>
-        </header>
         <h1>View Data</h1>
 
         <table>

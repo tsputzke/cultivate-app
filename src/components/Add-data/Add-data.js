@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import NavBack from '../NavBack/NavBack';
 import './Add-data.css';
 
 export default class AddData extends Component {
   render() {
     return (
       <div className='add-data'>
-        <header id="nav=header">
-          <NavBack navBack='/user/1/room/1'/>
-        </header>
         <section id="add-data-section">
           <h1>Add Data</h1>
           <form id="add-data-form">
