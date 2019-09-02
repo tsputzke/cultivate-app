@@ -1,17 +1,59 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import DataCharts from './DataChart/DataCharts'
+import ChartLegend from './ChartLegend/ChartLegend'
+import Moment from 'react-moment';
+import moment from 'moment'
+import 'moment-timezone';
 import '../Room/Room.css'
 
 export default class Room extends Component {
+  state = {
+    data: [],
+    dateArray: [],
+    user: 1
+  }
+
+  componentDidMount() {
+    fetch(`http://localhost:8000/api/room-data/${this.state.user}`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+      // If the call is successfull
+      .then(res => res.json() )
+      .then(res => {
+        let data = [];
+        res.map(date => data.push(date))
+        this.setState({data: data})
+      })
+      .then(res => {
+        let todayDate = Date.now()
+        let startDate = moment(todayDate).subtract(4, 'months') 
+        let dateArray = [];
+
+        this.state.data.forEach(function(a) {
+          let date = moment.utc(a.date_added).format("MM/DD/YY")
+          startDate = moment.utc(startDate).format("MM/DD/YY")
+    
+          if(date > startDate) {
+            dateArray.push(a)
+          }
+        })
+        this.setState({dateArray: dateArray})
+      })
+      // If the call fails
+      .catch(err => console.log(err));
+  };
+
   render() {
-    // Colors for chart
+    // Set colors for chart
     const chartColors = ['#f00', '#0f0', '#00f', '#0ff'];
 
-    // Insert chart colors into 'highs, lows' display
-    function style(index) {
-      return {color: chartColors[index]}
-    }
+    const logbook = this.state.data.map(function(date, i) {
+      return <section className="log" key={i}><h3><Moment format="MM/DD" date={date.date_added} /></h3><p>{date.comments}</p></section>
+    })
 
     return (
       <div className='room'>
@@ -19,20 +61,14 @@ export default class Room extends Component {
         <section id="flex-section">
           <div id="logbook-div">
             <h2 id="logbook-header">Logbook</h2>
-            <section className="log"><h3>May 5</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue eu consequat ac felis donec et odio. Nulla aliquet enim tortor at. Sed adipiscing diam donec adipiscing tristique risus nec. </p></section>
-            <section className="log"><h3>April 28</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue eu consequat ac felis donec et odio. Nulla aliquet enim tortor at. Sed adipiscing diam donec adipiscing tristique risus nec. </p></section>
-            <section className="log"><h3>April 21</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue eu consequat ac felis donec et odio. Nulla aliquet enim tortor at. Sed adipiscing diam donec adipiscing tristique risus nec. </p></section>
-            <section className="log"><h3>April 14</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue eu consequat ac felis donec et odio. Nulla aliquet enim tortor at. Sed adipiscing diam donec adipiscing tristique risus nec. </p></section>
-            <section className="log"><h3>April 7</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue eu consequat ac felis donec et odio. Nulla aliquet enim tortor at. Sed adipiscing diam donec adipiscing tristique risus nec. </p></section>
+            {logbook}
           </div>
           <div id="right-div">
-            <DataCharts chartColors={chartColors} />
-            <ul>
-              <li><span style={style(0)}>---- </span><strong>Temp (C): </strong>19, 25</li>
-              <li><span style={style(1)}>---- </span><strong>rH (%): </strong>64, 81</li>
-              <li><span style={style(2)}>---- </span><strong>CO<sub>2</sub> (ppm): </strong>445, 560</li>
-              <li><span style={style(3)}>---- </span><strong>Light (PPFD): </strong>0, 168</li>
-            </ul>
+            <DataCharts dateArray={this.state.dateArray} chartColors={chartColors} />
+            <ChartLegend 
+              dateArray={this.state.dateArray}
+              chartColors={chartColors}
+            />
             
             <Link to='/user/:userid/room/:roomid/add-data'><button className="data-button">Add Data</button></Link>
             <br />

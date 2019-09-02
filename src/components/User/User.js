@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ExistingRooms from '../ExistingRooms/ExistingRooms'
+import ExistingRooms from './ExistingRooms/ExistingRooms'
 import '../User/User.css'
 
 export default class User extends Component {
