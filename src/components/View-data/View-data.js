@@ -12,7 +12,7 @@ export default class ViewData extends Component {
             <tr>
               <th> Date </th>
               <th> Temperature </th>
-              <th> rH </th>
+              <th> RH </th>
               <th> CO2 </th>
               <th> Light </th>
               <th> Comments </th>

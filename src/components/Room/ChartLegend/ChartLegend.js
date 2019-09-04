@@ -42,7 +42,7 @@ export default class ChartLegend extends Component {
     return(
       <ul>
         <li><span style={color(0)}>---- </span><strong>Temp (C): </strong>Low: {lowVal('temp')}, High: {highVal('temp')}</li>
-        <li><span style={color(1)}>---- </span><strong>rH (%): </strong>Low: {lowVal('rh')}, High: {highVal('rh')}</li>
+        <li><span style={color(1)}>---- </span><strong>RH (%): </strong>Low: {lowVal('rh')}, High: {highVal('rh')}</li>
         <li><span style={color(2)}>---- </span><strong>CO<sub>2</sub> (ppm) [x10]: </strong>Low: {lowVal('co2')}, High: {highVal('co2')}</li>
         <li><span style={color(3)}>---- </span><strong>Light (PPFD): </strong>Low: {lowVal('light')}, High: {highVal('light')}</li>
       </ul>

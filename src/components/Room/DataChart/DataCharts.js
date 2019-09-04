@@ -7,7 +7,7 @@ import './DataCharts.css'
 export default class DataCharts extends Component {
   render() {
     const data = [
-      ["Date", "Temp (C)", 'rH (%)', 'CO2 (ppm) [x 10]', 'light (PPFD)']
+      ["Date", "Temp (C)", 'RH (%)', 'CO2 (ppm) [x 10]', 'light (PPFD)']
     ];
     
     // Format dateArray data and push to chart
