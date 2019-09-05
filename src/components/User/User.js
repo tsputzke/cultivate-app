@@ -5,7 +5,7 @@ import '../User/User.css'
 export default class User extends Component {
   state = {
     rooms: [],
-    user: 1
+    user: 2
   }
 
   componentDidMount() {
@@ -19,6 +19,7 @@ export default class User extends Component {
     .then(res => res.json() )
     .then(res => {
       this.setState({rooms: res})
+      console.log(this.state.rooms)
     })
     //if the call is failing
     .catch(err => console.log(err));
@@ -49,9 +50,7 @@ export default class User extends Component {
       body: JSON.stringify(newRoomObject),
     })
     //if call is successfull
-    .then(res => {
-      console.log(res)
-    })
+    .then(window.location.reload())
     //if the call is failing
     .catch(err => console.log(err));
   }

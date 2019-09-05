@@ -3,12 +3,6 @@ import React, { Component } from "react";
 export default class RegistrationForm extends Component {
   state = { userAdded: false };
 
-  // componentDidUpdate() {
-  //   if(this.state === ({userAdded: true})) {
-  //     console.log('state is updated')
-  //   }
-  // }
-
   handleNewUser = e => {
     e.preventDefault();
 

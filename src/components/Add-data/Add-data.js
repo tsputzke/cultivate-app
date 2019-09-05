@@ -57,7 +57,7 @@ export default class AddData extends Component {
             <div id="inputs">
               <div>
                 <label htmlFor="date_added">Date: </label>
-                <input type="date" name="date_added" defaultValue={moment().format("YYYY-MM-DD")} required />
+                <input type="date" name="date_added" defaultValue={moment.utc().format("YYYY-MM-DD")} required />
               </div>
               <div>
                 <label htmlFor="temperature">Temperature (C): </label>

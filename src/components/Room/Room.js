@@ -3,19 +3,18 @@ import { Link } from 'react-router-dom';
 import DataCharts from './DataChart/DataCharts'
 import ChartLegend from './ChartLegend/ChartLegend'
 import moment from 'moment'
-// import 'moment-timezone';
 import '../Room/Room.css'
 
 export default class Room extends Component {
   state = {
     dateArray: [],
-    user: 1,
+    room_id: 1,
     room: 'Demo Room'
   }
 
   componentWillMount() {
-    // Get room data based on the logged-in user
-    fetch(`http://localhost:8000/api/room-data/${this.state.user}`, {
+    // Get room data based on the logged-in room ID
+    fetch(`http://localhost:8000/api/room-data/${this.state.room_id}`, {
       method: "GET",
       headers: {
         "content-type": "application/json"
@@ -36,6 +35,7 @@ export default class Room extends Component {
         this.state.data.forEach(function(a) {
           let date = moment.utc(a.date_added).format("YYYY MM DD")
           startDate = moment.utc(startDate).format("YYYY MM DD")
+          console.log(date)
     
           if(date > startDate) {
             a.date_added = date
@@ -59,7 +59,7 @@ export default class Room extends Component {
     const logbook = this.state.dateArray.map(function(date, i) {
       return <section className="log" key={i}>
               <h3>{moment(date.date_added).format("MM/DD")}</h3>
-              <p>{date.comments}</p>
+              <pre>{date.comments}</pre>
             </section>
     })
 
