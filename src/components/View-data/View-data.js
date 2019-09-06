@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 import '../View-data/View-data.css'
 
 export default class ViewData extends Component {
@@ -19,13 +20,8 @@ export default class ViewData extends Component {
       // If call is successfull
       .then(res => res.json() )
       .then(res => {
-        let data = [];
-        res.map(date => data.push(date))
-        this.setState({data: data})
-      })
-      .then(res => {
-        // Sort dateArray by date_added
-        const dateArray = this.state.data.sort((a,b) => (a.date_added > b.date_added ? 1 : -1))
+        let dateArray = [];
+        res.forEach(date => dateArray.push(date))
         this.setState({dateArray: dateArray})
       })
       // If call fails
@@ -35,7 +31,7 @@ export default class ViewData extends Component {
   render() {
     // Create table row for each date from the dataArray in state
     const populateTable = this.state.dateArray.reverse().map((date, i) => {
-      return <tr key={i}><th>{date.date_added}</th><td>{date.temperature}</td><td>{date.rh}</td><td>{date.co2}</td><td>{date.light}</td><td><pre>{date.comments}</pre></td></tr>}) 
+      return <tr key={i}><th>{moment.utc(date.date_added).format("MM/DD")}</th><td>{date.temperature}</td><td>{date.rh}</td><td>{date.co2}</td><td>{date.light}</td><td><pre>{date.comments}</pre></td></tr>}) 
 
     return (
       <section className='view-data'>

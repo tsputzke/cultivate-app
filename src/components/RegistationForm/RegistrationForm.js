@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 
 export default class RegistrationForm extends Component {
-  state = { userAdded: false };
+  state = { 
+    user_name: '',
+    password: '',
+    userAdded: false,
+    error: null,
+  };
 
   handleNewUser = e => {
     e.preventDefault();
@@ -47,10 +52,13 @@ export default class RegistrationForm extends Component {
   };
 
   render() {
+    const { error } = this.state
     return (
       <section id="registration-section">
         <h1 className="form-title">Register:</h1>
         <form id="registration-form" onSubmit={this.handleNewUser}>
+
+
           <div>
             <label htmlFor="user_name">Username: </label>
             <input type="text" name="user_name" required />
@@ -66,6 +74,8 @@ export default class RegistrationForm extends Component {
           <button id="new-user-button" type="submit">
             Submit
           </button>
+
+          
         </form>
       </section>
     );

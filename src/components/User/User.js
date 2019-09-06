@@ -4,6 +4,7 @@ import '../User/User.css'
 
 export default class User extends Component {
   state = {
+    user_name: 'Sammy',
     rooms: [],
     user: 2
   }
@@ -19,7 +20,6 @@ export default class User extends Component {
     .then(res => res.json() )
     .then(res => {
       this.setState({rooms: res})
-      console.log(this.state.rooms)
     })
     //if the call is failing
     .catch(err => console.log(err));
@@ -58,7 +58,7 @@ export default class User extends Component {
   render() {
     return (
       <div className='user'>
-        <h1 id="user-header">Hello, NAME</h1>
+        <h1 id="user-header">Hello, {this.state.user_name}</h1>
         <section id="user-section">
           <h2 className="form-title">Create Room:</h2>
           <form 

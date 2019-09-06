@@ -35,15 +35,12 @@ export default class Room extends Component {
         this.state.data.forEach(function(a) {
           let date = moment.utc(a.date_added).format("YYYY MM DD")
           startDate = moment.utc(startDate).format("YYYY MM DD")
-          console.log(date)
     
           if(date > startDate) {
             a.date_added = date
             dateArray.push(a)
           }
         })
-        // Sort dateArray by date_added
-        dateArray.sort((a,b) => (a.date_added > b.date_added ? 1 : -1))
 
         this.setState({dateArray: dateArray})
         // console.log('state',this.state.dateArray)
