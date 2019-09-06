@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import DataCharts from './DataChart/DataCharts'
-import ChartLegend from './ChartLegend/ChartLegend'
 import moment from 'moment'
 import '../Room/Room.css'
 
@@ -50,9 +49,6 @@ export default class Room extends Component {
   };
 
   render() {
-    // Set colors for chart
-    const chartColors = ['#f00', '#0f0', '#00f', '#0ff'];
-
     const logbook = this.state.dateArray.map(function(date, i) {
       return <section className="log" key={i}>
               <h3>{moment(date.date_added).format("MM/DD")}</h3>
@@ -71,11 +67,6 @@ export default class Room extends Component {
           <div id="right-div">
             <DataCharts 
               dateArray={this.state.dateArray} 
-              chartColors={chartColors} 
-            />
-            <ChartLegend 
-              dateArray={this.state.dateArray}
-              chartColors={chartColors}
             />
             
             <Link to='/add-data'>
