@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import moment from 'moment'
-import './Add-data.css';
 
 export default class AddData extends Component {
   state = {
@@ -51,7 +50,7 @@ export default class AddData extends Component {
   render() {
     return (
       <div className='add-data'>
-        <section id="add-data-section">
+        <section className="add-data-section">
           <h1>Add Data</h1>
           <form id="add-data-form" onSubmit={this.handleAddData}>
             <div id="inputs">
@@ -79,7 +78,7 @@ export default class AddData extends Component {
             <div>
               <label htmlFor="comments">Comments: </label>
               <br />
-              <textarea name="comments" id="comments-textbox" rows="10" cols="30"></textarea> 
+              <textarea name="comments" className="comments-textbox" rows="10" cols="30"></textarea> 
             </div>
             <button type="submit">Submit</button>
           </form>

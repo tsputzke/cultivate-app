@@ -37,10 +37,10 @@ export default class LoginForm extends Component {
   
   render() {
     return (
-      <section id="landing-section">
+      <section className="login">
         <h2 className="form-title">Sign-in:</h2>
         <form
-          id="signin-form"
+          className="login-form"
           onSubmit={this.handleLogin}
         >
           <div>
@@ -51,7 +51,7 @@ export default class LoginForm extends Component {
             <label htmlFor="password">Password: </label>
             <input type="password" name="password" required />
           </div>
-          <button id="user-button" type="submit">Submit</button>
+          <button className="login-button" type="submit">Submit</button>
         </form>
       </section>
     )

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ExistingRooms from './ExistingRooms/ExistingRooms'
-import '../User/User.css'
 
 export default class User extends Component {
   state = {
@@ -58,9 +57,9 @@ export default class User extends Component {
   render() {
     return (
       <div className='user'>
-        <h1 id="user-header">Hello, {this.state.user_name}</h1>
-        <section id="user-section">
-          <h2 className="form-title">Create Room:</h2>
+        <h1 className='center-align'>Hello, {this.state.user_name}</h1>
+        <section className="user-section">
+          <h2 className="room-form-title">Create Room:</h2>
           <form 
             id="create-room-form"
             onSubmit={this.handleNewRoom}

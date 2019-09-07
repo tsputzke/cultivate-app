@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import DataCharts from './DataChart/DataCharts'
 import moment from 'moment'
-import '../Room/Room.css'
 
 export default class Room extends Component {
   state = {
@@ -58,16 +57,14 @@ export default class Room extends Component {
 
     return (
       <div className='room'>
-        <h1 className='room-title'>{this.state.room}</h1>
-        <section id="flex-section">
-          <div id="logbook-div">
-            <h2 id="logbook-header">Logbook</h2>
+        <h1 className='center-align'>{this.state.room}</h1>
+        <section className="flex-section">
+          <div className="logbook">
+            <h2 className="logbook-title">Logbook</h2>
             {logbook.reverse()}
           </div>
-          <div id="right-div">
-            <DataCharts 
-              dateArray={this.state.dateArray} 
-            />
+          <div className="right-div">
+            <DataCharts dateArray={this.state.dateArray} />
             
             <Link to='/add-data'>
               <button className="data-button">Add Data</button>

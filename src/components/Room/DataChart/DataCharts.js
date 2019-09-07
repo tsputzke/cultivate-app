@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Chart } from "react-google-charts";
 import moment from 'moment'
 import 'moment-timezone';
-import './DataCharts.css'
 
 
 export default class DataCharts extends Component {

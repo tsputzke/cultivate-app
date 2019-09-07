@@ -8,7 +8,7 @@ export default class ExistingRooms extends Component {
     })
 
     return(
-      <section id="existing-rooms">
+      <section className="existing-rooms">
         <h2>Choose Existing Room:</h2>
         <ul>
           <li><Link to="/show-room">Example Room</Link></li>

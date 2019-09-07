@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import moment from 'moment'
-import '../View-data/View-data.css'
 
 export default class ViewData extends Component {
   state = {
@@ -37,7 +36,7 @@ export default class ViewData extends Component {
       <section className='view-data'>
         <h1>View Data</h1>
 
-        <table>
+        <table className='view-data-table'>
           <tbody>
             <tr>
               <th> Date </th>

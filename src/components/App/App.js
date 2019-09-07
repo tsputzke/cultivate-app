@@ -9,7 +9,6 @@ import Room from '../Room/Room';
 import AddData from '../Add-data/Add-data';
 import ViewData from '../View-data/View-data';
 import PageNoteFound from '../page-not-found/page-note-found';
-import '../App/App.css';
 
 class App extends Component {
   render() {
