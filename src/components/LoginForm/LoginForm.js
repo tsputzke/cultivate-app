@@ -38,20 +38,22 @@ export default class LoginForm extends Component {
   render() {
     return (
       <section className="login">
-        <h2 className="form-title">Sign-in:</h2>
         <form
           className="login-form"
           onSubmit={this.handleLogin}
         >
-          <div>
-            <label htmlFor="user_name"> Username: </label>
-            <input type="text" name="user_name" required />
-          </div>
-          <div>
-            <label htmlFor="password">Password: </label>
-            <input type="password" name="password" required />
-          </div>
-          <button className="login-button" type="submit">Submit</button>
+          <fieldset>
+            <legend>Sign-in:</legend>
+            <div>
+              <label htmlFor="user_name"> Username: </label>
+              <input type="text" name="user_name" required />
+            </div>
+            <div>
+              <label htmlFor="password">Password: </label>
+              <input type="password" name="password" required />
+            </div>
+            <button className="login-button" type="submit">Submit</button>
+          </fieldset>
         </form>
       </section>
     )

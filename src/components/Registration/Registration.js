@@ -43,40 +43,37 @@ export default class Registration extends Component {
     })
       //if call is successfull
       .then(res => {
-        console.log("state before:", this.state);
         this.setState({ userAdded: true });
-        console.log("state after:", this.state);
       })
       //if the call is failing
       .catch(err => console.log(err));
   };
 
   render() {
-    // const { error } = this.state
+    const { error } = this.state
     return (
       <div className='registration'>
-        <section className="registration-section">
-          <h1 className="form-title">Register:</h1>
-          <form className="registration-form" onSubmit={this.handleNewUser}>
-
+        <form className="registration-form" onSubmit={this.handleNewUser}>
+          <fieldset>
+            <legend>Register: </legend>
             <div>
               <label htmlFor="user_name">Username: </label>
-              <input type="text" name="user_name" required />
+              <input type="text" name="user_name" />
             </div>
             <div>
               <label htmlFor="password">Password: </label>
-              <input type="password" name="password" required />
+              <input type="password" name="password" />
             </div>
             <div>
               <label htmlFor="confirm_password">Confirm Password: </label>
-              <input type="password" name="confirm_password" required />
+              <input type="password" name="confirm_password" />
             </div>
-            <button className="registration-button" type="submit">
-              Submit
-            </button>
-            
-          </form>
-        </section>
+
+            <button className="registration-button" type="submit">Submit</button>
+
+            <p>Password must be at least 8 characters long. It must contain at least one number and special character</p>
+          </fieldset>
+        </form>
       </div>
     );
   }

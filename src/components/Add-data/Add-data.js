@@ -50,10 +50,11 @@ export default class AddData extends Component {
   render() {
     return (
       <div className='add-data'>
-        <section className="add-data-section">
-          <h1>Add Data</h1>
-          <form id="add-data-form" onSubmit={this.handleAddData}>
-            <div id="inputs">
+        <section className="add-data-form">
+          <form onSubmit={this.handleAddData}>
+            <fieldset>
+              <legend>Add Data: </legend>
+              <div>
               <div>
                 <label htmlFor="date_added">Date: </label>
                 <input type="date" name="date_added" defaultValue={moment.utc().format("YYYY-MM-DD")} required />
@@ -80,7 +81,10 @@ export default class AddData extends Component {
               <br />
               <textarea name="comments" className="comments-textbox" rows="10" cols="30"></textarea> 
             </div>
+            
             <button type="submit">Submit</button>
+
+            </fieldset>
           </form>
         </section>
       </div>
