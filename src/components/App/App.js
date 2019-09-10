@@ -8,7 +8,7 @@ import User from '../User/User';
 import Room from '../Room/Room';
 import AddData from '../Add-data/Add-data';
 import ViewData from '../View-data/View-data';
-import PageNoteFound from '../page-not-found/page-note-found';
+import PageNotFound from '../Page-Not-Found/Page-Not-Found';
 
 class App extends Component {
   render() {
@@ -49,7 +49,7 @@ class App extends Component {
               component={ViewData}
             />
             <Route
-              component={PageNoteFound}
+              component={PageNotFound}
             />
           </Switch>
         </main>
