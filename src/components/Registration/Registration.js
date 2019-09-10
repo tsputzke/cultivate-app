@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AuthApiService from '../../services/auth-api-service'
 
 export default class Registration extends Component {
   state = { 
@@ -10,50 +11,37 @@ export default class Registration extends Component {
 
   handleNewUser = e => {
     e.preventDefault();
+    const { user_name, password, confirm_password } = e.target
 
-    const user_name = e.target.user_name.value;
-    const password = e.target.password.value;
-    const confirm_password = e.target.confirm_password.value;
-
-    //check passwords
-
-    //check passwords match
-    if (password !== confirm_password) {
-      alert("Passwords must match");
+    // Confirm that passwords match
+    if (password.value !== confirm_password.value) {
+      alert('passwords must match')
+      window.location ='/registration'
     }
 
-    //validate the input
-    if (user_name === "") {
-      alert("Please enter username");
-    } else if (password === "") {
-      alert("Please enter password");
-    }
-
-    const newUserObject = {
-      user_name: user_name,
-      password: password
-    };
-
-    fetch(`http://localhost:8000/api/users`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify(newUserObject)
-    })
-      //if call is successfull
-      .then(res => {
-        this.setState({ userAdded: true });
+    this.setState({ error: null })
+      AuthApiService.postUser({
+        user_name: user_name.value,
+        password: password.value,
       })
-      //if the call is failing
-      .catch(err => console.log(err));
-  };
+        .then(user => {
+          user_name.value = ''
+          password.value = ''
+          window.location ='/show-user'
+        })  
+        .catch(res => {
+          this.setState({ error: res.error })
+        })
+  }
 
   render() {
     const { error } = this.state
     return (
       <div className='registration'>
         <form className="registration-form" onSubmit={this.handleNewUser}>
+          <div role='alert'>
+            {error && <p className='error'>{error}</p>}
+          </div>
           <fieldset>
             <legend>Register: </legend>
             <div>
