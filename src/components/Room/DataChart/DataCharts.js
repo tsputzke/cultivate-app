@@ -70,6 +70,7 @@ export default class DataCharts extends Component {
 
     return (
       <div className="chart-display">
+        {}
         <Chart
           chartType="LineChart"
           data={data}

@@ -47,7 +47,6 @@ export default class Room extends Component {
   };
 
   render() {
-    console.log(this.state.dateArray)
     const logbook = this.state.dateArray.map(function(date, i) {
       return <section className="log" key={i}>
               <h3>{moment(date.date_added).format("MM/DD")}</h3>
