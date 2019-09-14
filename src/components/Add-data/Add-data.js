@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment'
+import TokenService from '../../services/token-service'
 
 export default class AddData extends Component {
-  state = {
-    user: 1,
-    room_id: 1,
-  }
 
   handleAddData = e => {  
     e.preventDefault();
@@ -25,7 +22,7 @@ export default class AddData extends Component {
     // }
 
     const newDataObject = {
-      room_id: this.state.room_id,
+      room_id: window.sessionStorage.getItem('room_id'),
       date_added: date_added,
       temperature: temperature,
       rh: rh,
@@ -37,12 +34,14 @@ export default class AddData extends Component {
     fetch(`http://localhost:8000/api/room-data`, {
       method: "POST",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify(newDataObject)
     })
       // Reload page if call is successfull
-      .then(window.location.reload())
+      // .then(window.location.reload())
+      .then(this.props.history.push(`/show-room`))
       // If call fails
       .catch(err => console.log(err));
   };

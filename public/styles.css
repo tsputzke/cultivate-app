@@ -265,7 +265,7 @@ table, tr, th, td {
 }
 
 /* Page-Not-Found */
-.page-not-found {
+.page-not-found-title {
   margin: auto;
   padding-top: 100px;
   min-height: 200px;

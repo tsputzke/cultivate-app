@@ -1,27 +1,47 @@
 import React, { Component } from 'react'
-import ExistingRooms from './ExistingRooms/ExistingRooms'
+import TokenService from '../../services/token-service'
+import UserContext from '../../context/user-context'
+import { Link } from 'react-router-dom';
 
 export default class User extends Component {
+  static contextType = UserContext
+
   state = {
-    user_name: 'Sammy',
-    rooms: [],
-    user: 2
+    rooms: []
   }
 
   componentDidMount() {
-    fetch(`http://localhost:8000/api/rooms/${this.state.user}`, {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-      },
+    const userId = window.sessionStorage.getItem('user_id')
+      fetch(`http://localhost:8000/api/rooms/${userId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'authorization': `bearer ${TokenService.getAuthToken()}`,
+        },
+      })
+      //if call is successfull
+      .then(res => res.json() )
+      .then(res => {
+        this.setState({rooms: res})
+      })
+      //if the call is failing
+      .catch(err => console.log(err));
+    } 
+
+  showRooms = () => {
+    const userRooms = this.state.rooms
+    return userRooms.map(function(room, i) {
+      return <li key={i}>
+        <Link 
+          onClick={() => {
+              window.sessionStorage.setItem('room_id', room.room_id)
+              window.sessionStorage.setItem('room_name', room.room_name)
+          }} 
+          to='/show-room'>
+          {room.room_name}
+        </Link>
+      </li>
     })
-    //if call is successfull
-    .then(res => res.json() )
-    .then(res => {
-      this.setState({rooms: res})
-    })
-    //if the call is failing
-    .catch(err => console.log(err));
   }
 
   handleNewRoom = e => {
@@ -29,7 +49,6 @@ export default class User extends Component {
 
     const room_name = e.target.room_name.value;
     const room_description = e.target.room_description.value;
-    
 
     //validate the input
     if (room_name === "") {
@@ -37,27 +56,37 @@ export default class User extends Component {
     }
 
     const newRoomObject = {
+      user_id: window.sessionStorage.getItem('user_id'),
       room_name: room_name,
       room_description: room_description
     };
+    console.log(newRoomObject)
     
     fetch(`http://localhost:8000/api/rooms`, {
       method: 'POST',
       headers: {
-        'content-type': 'application/json',
+        'Content-Type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(newRoomObject),
     })
-    //if call is successfull
-    .then(window.location.reload())
-    //if the call is failing
-    .catch(err => console.log(err));
-  }
+      // If call is successful
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+      // .then(this.props.history.push(`/show-user`))
+      .then(window.location.reload())
+      // .then(window.location.replace('/show-user'))
+    }
 
   render() {
+    const showRooms = this.showRooms()
+    const userName = window.sessionStorage.getItem('user_name')
     return (
       <div className='user'>
-        <h1 className='center-align'>Hello, {this.state.user_name}</h1>
+        <h1 className='center-align'>Hello, {userName}</h1>
         <section className="user-section">
           <h2 className="room-form-title">Create Room:</h2>
           <form 
@@ -75,7 +104,13 @@ export default class User extends Component {
             <button className="new-room-button">Submit</button>
           </form>
         </section>
-        <ExistingRooms rooms={this.state.rooms}/>
+        <section className="existing-rooms">
+        <h2>Choose Existing Room:</h2>
+        <ul>
+          <li><Link to="/show-room">Example Room</Link></li>
+          {showRooms}
+        </ul>
+      </section>
       </div>
     )
   }

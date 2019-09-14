@@ -1,16 +1,16 @@
 const AuthApiService = {
-  postLogin(credentials) {
-    return fetch(`https://blooming-stream-59570.herokuapp.com/login`, {
+  postLogin({ user_name, password }) {
+    return fetch(`http://localhost:8000/api/auth/login`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify(credentials),
+      body: JSON.stringify({ user_name, password }),
     })
       .then(response =>
         (!response.ok)
           ? response.json().then(e => Promise.reject(e),
-								alert('Credentials not found'))
+								alert('Username / password combination not found'))
           : response.json()
       )
   },
@@ -30,6 +30,7 @@ const AuthApiService = {
       )
   }
 }
+
 
 
 export default AuthApiService

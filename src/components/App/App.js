@@ -9,51 +9,103 @@ import Room from '../Room/Room';
 import AddData from '../Add-data/Add-data';
 import ViewData from '../View-data/View-data';
 import PageNotFound from '../Page-Not-Found/Page-Not-Found';
+import UserContext from '../../context/user-context'
+import PrivateRoute from '../../utils/PrivateOnlyRoute'
+import PublicOnlyRoute from '../../utils/PublicOnlyRoute'
 
 class App extends Component {
+  state = {
+    user_id: '',
+    user_name: '',
+    room_id: '',
+    room_name: '',
+    rooms: [],
+  }
+
+  updateLoggedUser = user => {
+    this.setState({
+      user_id: user.user_id,
+      user_name: user.user_name
+    });
+  };
+
+  updateUserRooms = userRooms => {
+    this.setState({
+      rooms: userRooms
+    });
+  };
+
+  updateRoom = room => {
+    this.setState({
+      room_id: room.room_id,
+      room_name: room.room_name
+    });
+  };
+
+
   render() {
+    const value = {
+
+      user_id: this.state.user_id,
+      user_name: this.state.user_name,
+      room_id: this.state.room_id,
+      room_name: this.state.room_name,
+      rooms: this.state.rooms,
+
+      updateLoggedUser: this.updateLoggedUser,
+      updateUserRooms: this.updateUserRooms,
+      updateRoom: this.updateRoom,
+    };
     return (
-      <div className="App">
-        <header id="nav-header">
-          <Nav />
-        </header>
-        <main>
-          <Switch>
-            <Route
-              exact
-              path={'/'}
-              component={Landing}
-            />
-            <Route
-              path={'/about'}
-              component={About}
-            />
-            <Route
-              path={'/registration'}
-              component={Registration}
-            />
-            <Route
-              path={'/show-user'}
-              component={User}
-            />
-            <Route
-              path={'/show-room'}
-              component={Room}
-            />
-            <Route
-              path={'/add-data'}
-              component={AddData}
-            />
-            <Route
-              path={'/view-data'}
-              component={ViewData}
-            />
-            <Route
-              component={PageNotFound}
-            />
-          </Switch>
-        </main>
-      </div>
+      <UserContext.Provider value={value}>
+        <div className="App">
+          <header id="nav-header">
+            <Nav />
+          </header>
+          <main>
+            <Switch>
+              <PublicOnlyRoute
+                exact
+                path={'/'}
+                component={Landing}
+              />
+              <Route
+                exact
+                path={'/about'}
+                component={About}
+              />
+              <PublicOnlyRoute
+                exact
+                path={'/registration'}
+                component={Registration}
+              />
+              <PrivateRoute
+                exact
+                path={'/show-user'}
+                component={User}
+              />
+              <PrivateRoute
+                exact
+                path={'/show-room'}
+                component={Room}
+              />
+              <PrivateRoute
+                exact
+                path={'/add-data'}
+                component={AddData}
+              />
+              <PrivateRoute
+                exact
+                path={'/view-data'}
+                component={ViewData}
+              />
+              <Route
+                component={PageNotFound}
+              />
+            </Switch>
+          </main>
+        </div>
+      </UserContext.Provider>
     );
   }
 }

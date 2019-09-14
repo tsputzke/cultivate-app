@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import moment from 'moment'
+import TokenService from '../../services/token-service'
 
 export default class ViewData extends Component {
   state = {
     dateArray: [],
-    room_id: 1,
-    room: 'Demo Room'
   }
 
   componentWillMount() {
     // Get room_data for a given room
-    fetch(`http://localhost:8000/api/room-data/${this.state.room_id}`, {
+    fetch(`http://localhost:8000/api/room-data/${window.sessionStorage.getItem('room_id')}`, {
       method: "GET",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
       // If call is successfull
