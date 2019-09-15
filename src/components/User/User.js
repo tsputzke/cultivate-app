@@ -19,7 +19,7 @@ export default class User extends Component {
           'authorization': `bearer ${TokenService.getAuthToken()}`,
         },
       })
-      //if call is successfull
+      //if call is successful
       .then(res => res.json() )
       .then(res => {
         this.setState({rooms: res})
@@ -27,23 +27,6 @@ export default class User extends Component {
       //if the call is failing
       .catch(err => console.log(err));
   } 
-
-  // handleDeleteRoom = (roomId) => {
-  //   fetch(`http://localhost:8000/api/room-data/${roomId}`, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       'authorization': `bearer ${TokenService.getAuthToken()}`
-  //     }
-  //   })
-  //     // If call is successful
-  //     .then(res =>
-  //       (!res.ok)
-  //         ? res.json().then(e => Promise.reject(e))
-  //         : res.json()
-  //     )
-  //     .then(window.location.reload())
-  // };
 
   showRooms = () => {
     const deleteRoom = this.context.deleteRoom

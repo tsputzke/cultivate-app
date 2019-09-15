@@ -15,13 +15,6 @@ import PublicOnlyRoute from '../../utils/PublicOnlyRoute'
 import TokenService from '../../services/token-service'
 
 class App extends Component {
-  state = {
-    user_id: '',
-    user_name: '',
-    room_id: '',
-    room_name: '',
-    rooms: [],
-  }
 
   handleDeleteRoom = (roomId) => {
     fetch(`http://localhost:8000/api/room-data/${roomId}`, {
@@ -38,43 +31,31 @@ class App extends Component {
           : res.json()
       )
       .then(window.location.reload())
-  };
+  }
 
-  updateLoggedUser = user => {
-    this.setState({
-      user_id: user.user_id,
-      user_name: user.user_name
-    });
-  };
-
-  updateUserRooms = userRooms => {
-    this.setState({
-      rooms: userRooms
-    });
-  };
-
-  updateRoom = room => {
-    this.setState({
-      room_id: room.room_id,
-      room_name: room.room_name
-    });
-  };
-
+  handleDeleteByDate = (room_data_id) => {
+    fetch(`http://localhost:8000/api/data/${room_data_id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+      // If call is successful
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+      .then(window.location.reload())
+  } 
 
   render() {
     const value = {
-
-      user_id: this.state.user_id,
-      user_name: this.state.user_name,
-      room_id: this.state.room_id,
-      room_name: this.state.room_name,
-      rooms: this.state.rooms,
-
-      updateLoggedUser: this.updateLoggedUser,
-      updateUserRooms: this.updateUserRooms,
-      updateRoom: this.updateRoom,
-      deleteRoom: this.handleDeleteRoom
+      deleteRoom: this.handleDeleteRoom,
+      deleteByDate: this.handleDeleteByDate
     };
+
     return (
       <UserContext.Provider value={value}>
         <div className="App">

@@ -21,15 +21,12 @@ export default class Landing extends Component {
     
     AuthApiService.postLogin(user)
       .then(res => {
-        // user_name.value = ''
-        // password.value = ''
-        // this.context.user_name = res.user_name;
-        // this.context.user_id = res.user_id;
+        user_name.value = ''
+        password.value = ''
         user.user_id = res.user_id
-        this.context.updateLoggedUser(user)
         TokenService.saveAuthToken(res.authToken)
-        window.sessionStorage.setItem('user_id', this.context.user_id)
-        window.sessionStorage.setItem('user_name', this.context.user_name)
+        window.sessionStorage.setItem('user_id', user.user_id)
+        window.sessionStorage.setItem('user_name', user.user_name)
         this.props.history.push(`/show-user`)
         // window.location.replace('/show-user')
       })
