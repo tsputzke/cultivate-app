@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
+import UserContext from '../../context/user-context'
 
 export default class Nav extends Component {
+  static contextType = UserContext
+
   handleLogoutClick = () => {
     TokenService.clearAuthToken() 
     // window.sessionStorage.removeItem('user_id')
@@ -10,6 +13,7 @@ export default class Nav extends Component {
     // window.sessionStorage.removeItem('room_id')
     // window.sessionStorage.removeItem('room_name')
     sessionStorage.clear()
+    this.context.toggleState()
   }
 
   render() {

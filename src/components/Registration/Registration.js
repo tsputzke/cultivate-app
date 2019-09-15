@@ -27,7 +27,8 @@ export default class Registration extends Component {
         .then(user => {
           user_name.value = ''
           password.value = ''
-          window.location ='/show-user'
+          this.props.history.push(`/`)
+          // window.location ='/show-user'
         })  
         .catch(res => {
           this.setState({ error: res.error })

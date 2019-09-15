@@ -15,6 +15,17 @@ import PublicOnlyRoute from '../../utils/PublicOnlyRoute'
 import TokenService from '../../services/token-service'
 
 class App extends Component {
+  state = {
+    isLoggedIn: false
+  }
+
+  handleToggleState = () => {
+    if(!this.state.isLoggedIn) {
+      this.setState({ isLoggedIn: true })
+    } else {
+      this.setState({ isLoggedIn: false })
+    }
+  }
 
   handleDeleteRoom = (roomId) => {
     fetch(`http://localhost:8000/api/room-data/${roomId}`, {
@@ -53,15 +64,18 @@ class App extends Component {
   render() {
     const value = {
       deleteRoom: this.handleDeleteRoom,
-      deleteByDate: this.handleDeleteByDate
+      deleteByDate: this.handleDeleteByDate,
+      toggleState: this.handleToggleState
     };
 
     return (
       <UserContext.Provider value={value}>
         <div className="App">
-          <header id="nav-header">
-            <Nav />
-          </header>
+          {(this.state.isLoggedIn) &&
+            <header id="nav-header">
+              <Nav />
+            </header>
+          }
           <main>
             <Switch>
               <PublicOnlyRoute
