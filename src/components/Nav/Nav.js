@@ -21,14 +21,8 @@ export default class Nav extends Component {
       <nav className='nav'>
         <ul className='nav-links'>
           <li id="nav-button-left"><Link to='/about'>About</Link></li>
-          <li><Link to='/show-user'>User Home</Link></li>
-          <li>
-            <Link
-              onClick={this.handleLogoutClick}
-              to='/'>
-              Logout
-            </Link>
-          </li>
+          <li><Link to='/show-user'>Home</Link></li>
+          <li><Link onClick={this.handleLogoutClick} to='/'> Logout</Link></li>
         </ul>
       </nav>
     )

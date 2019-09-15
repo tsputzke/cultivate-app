@@ -15,8 +15,9 @@ import PublicOnlyRoute from '../../utils/PublicOnlyRoute'
 import TokenService from '../../services/token-service'
 
 class App extends Component {
+
   state = {
-    isLoggedIn: false
+    isLoggedIn: window.sessionStorage.getItem('isLoggedIn')
   }
 
   handleToggleState = () => {

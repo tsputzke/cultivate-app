@@ -70,12 +70,16 @@ body {
   color: red;
 }
 
+button:hover {
+  background-color: pink;
+}
+
 button {
   display: block; 
   margin: auto;
-  padding: 15px;
+  padding: 8px;
   font-size: 1.2em;
-  border: 3px solid red;
+  border: 1px solid red;
 }
 
 /* -------------------------------------

@@ -33,6 +33,10 @@ export default class DataCharts extends Component {
         top: 20,
         bottom: 20
       },
+      explorer: {
+        axis: 'horizontal', 
+        keepInBounds: true
+      },
       colors: chartColors
     };
 
