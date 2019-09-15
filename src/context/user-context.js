@@ -9,4 +9,5 @@ export default React.createContext({
   updateLoggedUser: () => {},
   updateUserRooms: () => {},
   updateRoom: () => {},
+  deleteRoom: () => {}
 })

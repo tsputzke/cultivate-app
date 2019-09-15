@@ -12,6 +12,7 @@ import PageNotFound from '../Page-Not-Found/Page-Not-Found';
 import UserContext from '../../context/user-context'
 import PrivateRoute from '../../utils/PrivateOnlyRoute'
 import PublicOnlyRoute from '../../utils/PublicOnlyRoute'
+import TokenService from '../../services/token-service'
 
 class App extends Component {
   state = {
@@ -21,6 +22,23 @@ class App extends Component {
     room_name: '',
     rooms: [],
   }
+
+  handleDeleteRoom = (roomId) => {
+    fetch(`http://localhost:8000/api/room-data/${roomId}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+      // If call is successful
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+      .then(window.location.reload())
+  };
 
   updateLoggedUser = user => {
     this.setState({
@@ -55,6 +73,7 @@ class App extends Component {
       updateLoggedUser: this.updateLoggedUser,
       updateUserRooms: this.updateUserRooms,
       updateRoom: this.updateRoom,
+      deleteRoom: this.handleDeleteRoom
     };
     return (
       <UserContext.Provider value={value}>

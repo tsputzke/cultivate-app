@@ -9,7 +9,7 @@ export default class Room extends Component {
     dateArray: [],
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     // Get room data based on the logged-in room ID
     fetch(`http://localhost:8000/api/room-data/${window.sessionStorage.getItem('room_id')}`, {
       method: "GET",

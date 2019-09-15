@@ -7,7 +7,7 @@ export default class ViewData extends Component {
     dateArray: [],
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     // Get room_data for a given room
     fetch(`http://localhost:8000/api/room-data/${window.sessionStorage.getItem('room_id')}`, {
       method: "GET",

@@ -5,10 +5,11 @@ import TokenService from '../../services/token-service'
 export default class Nav extends Component {
   handleLogoutClick = () => {
     TokenService.clearAuthToken() 
-    window.sessionStorage.removeItem('user_id')
-    window.sessionStorage.removeItem('user_name')
-    window.sessionStorage.removeItem('room_id')
-    window.sessionStorage.removeItem('room_name')
+    // window.sessionStorage.removeItem('user_id')
+    // window.sessionStorage.removeItem('user_name')
+    // window.sessionStorage.removeItem('room_id')
+    // window.sessionStorage.removeItem('room_name')
+    sessionStorage.clear()
   }
 
   render() {
