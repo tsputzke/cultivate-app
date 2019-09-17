@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import AuthApiService from '../../services/auth-api-service'
 
 export default class Registration extends Component {
@@ -44,7 +45,7 @@ export default class Registration extends Component {
             {error && <p className='error'>{error}</p>}
           </div>
           <fieldset>
-            <legend>Register: </legend>
+            <legend>Create Account: </legend>
             <div>
               <label htmlFor="user_name">Username: </label>
               <input type="text" name="user_name" />
@@ -61,6 +62,8 @@ export default class Registration extends Component {
             <button className="registration-button" type="submit">Submit</button>
 
             <p>Password must be at least 8 characters long. It must contain at least one number and special character</p>
+
+            <p>Already a user? <span><Link to='/'>login here</Link></span></p>
           </fieldset>
         </form>
       </div>

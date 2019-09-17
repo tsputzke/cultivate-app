@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import moment from 'moment'
+import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import UserContext from '../../context/user-context'
 
@@ -37,6 +38,7 @@ export default class ViewData extends Component {
 
     return (
       <section className='view-data'>
+        <button className='back-button'><Link to='/show-room'>Back</Link></button>
         <h1>View Data</h1>
 
         <table className='view-data-table'>

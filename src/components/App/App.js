@@ -28,6 +28,17 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    /* if a user is logged in */
+    if (TokenService.hasAuthToken()) {
+      /*
+        Tell the token service to read the JWT, looking at the exp value
+        and queue a timeout just before the token expires
+      */
+      TokenService.queueCallbackBeforeExpiry()
+    }
+  }
+
   handleDeleteRoom = (roomId) => {
     fetch(`http://localhost:8000/api/room-data/${roomId}`, {
       method: "DELETE",

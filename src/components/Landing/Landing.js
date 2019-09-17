@@ -15,8 +15,8 @@ export default class Landing extends Component {
     const { user_name, password } = e.target
 
     const user = {
-      user_name: user_name.value,
-      password: password.value,
+      user_name: user_name.value.trim(),
+      password: password.value.trim(),
     }
     
     AuthApiService.postLogin(user)
@@ -28,8 +28,8 @@ export default class Landing extends Component {
         window.sessionStorage.setItem('user_name', user.user_name)
         window.sessionStorage.setItem('isLoggedIn', 'true')
         this.context.toggleState()
-        this.props.history.push(`/show-user`)
-        // window.location.replace('/show-user')
+        // this.props.history.push(`/show-user`)
+        window.location.replace('/show-user')
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -41,7 +41,7 @@ export default class Landing extends Component {
       <div className='landing'>
         <h1 className='center-align'>Cultivate</h1>
         <p className='landing-description'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue eu consequat ac felis donec et odio. Nulla aliquet enim tortor at. Sed adipiscing diam donec adipiscing tristique risus nec. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Proin fermentum leo vel orci porta non. For information on how to start organizing your grow room data with Cultivate, <span><Link to='/about'>click here</Link></span>.
+          Grow smarter. <br/> To learn about tracking your grow room data with Cultivate, <span><Link to='/about'>click here</Link></span>.
         </p>
         <section className="login">
           <form
@@ -52,7 +52,7 @@ export default class Landing extends Component {
               {error && <p className='red'>{error}</p>}
             </div>
             <fieldset>
-              <legend>Sign-in:</legend>
+              <legend>User Login:</legend>
               <div>
                 <label htmlFor="user_name"> Username: </label>
                 <input type="text" name="user_name" required />
@@ -61,8 +61,9 @@ export default class Landing extends Component {
                 <label htmlFor="password">Password: </label>
                 <input type="password" name="password" required />
               </div>
-              <button className="login-button" type="submit">Submit</button>
+              <button className="login-button" type="submit">Login</button>
               <p>New user? <span><Link to='/registration'>register here</Link></span></p>
+              <p>Or, sign in as a testuser to look around. Username: TestUser Password: testuser1!</p>
             </fieldset>
           </form>
         </section>

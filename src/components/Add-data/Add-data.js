@@ -39,8 +39,7 @@ export default class AddData extends Component {
       },
       body: JSON.stringify(newDataObject)
     })
-      // Reload page if call is successfull
-      // .then(window.location.reload())
+      // Reload page if call is successful
       .then(this.props.history.push(`/show-room`))
       // If call fails
       .catch(err => console.log(err));

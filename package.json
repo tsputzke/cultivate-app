@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.26",
     "now": "^16.1.2",
