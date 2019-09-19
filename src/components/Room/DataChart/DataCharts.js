@@ -7,6 +7,7 @@ import 'moment-timezone';
 export default class DataCharts extends Component {
   render() {
     const dateArray = this.props.dateArray;
+    
     // Set colors for chart
     const chartColors = ['blue', 'green', 'red', 'orange'];
     // const chartColors = ['#f00', '#0f0', '#00f', '#0ff'];

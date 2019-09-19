@@ -6,28 +6,39 @@ import { Link } from 'react-router-dom';
 export default class User extends Component {
   static contextType = UserContext
 
-  state = {
-    rooms: [],
-  }
+  constructor(props) {
+    super(props);
+    this.state = {
+        active: false,
+        rooms: []
+    };
+}
+  // Add a class to hide example room upon 'delete' event
+  toggleClass = () => {
+    const currentState = this.state.active;
+    this.setState({ active: !currentState });
+  };
 
   componentDidMount() {
+    // Update state with array of rooms based on user_id
     const userId = window.sessionStorage.getItem('user_id')
-      fetch(`http://localhost:8000/api/rooms/${userId}`, {
+      fetch(`http://localhost:8000/api/users/${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           'authorization': `bearer ${TokenService.getAuthToken()}`,
         },
       })
-      //if call is successful
+      // If call is successful
       .then(res => res.json() )
       .then(res => {
         this.setState({rooms: res})
       })
-      //if the call is failing
+      // If call fails
       .catch(err => console.log(err));
   } 
 
+  // Return list item for each room
   showRooms = () => {
     const deleteRoom = this.context.deleteRoom
     const userRooms = this.state.rooms
@@ -46,6 +57,7 @@ export default class User extends Component {
     })
   }
 
+  // Handle add new room
   handleNewRoom = e => {
     e.preventDefault();
 
@@ -62,7 +74,6 @@ export default class User extends Component {
       room_name: room_name,
       room_description: room_description
     };
-    console.log(newRoomObject)
     
     fetch(`http://localhost:8000/api/rooms`, {
       method: 'POST',
@@ -79,7 +90,6 @@ export default class User extends Component {
           : res.json()
       )
       .then(window.location.reload())
-      // .then(window.location.replace('/show-user'))
     }
 
   render() {
@@ -108,7 +118,17 @@ export default class User extends Component {
         <section className="existing-rooms">
         <h2>Choose Existing Room:</h2>
         <ul>
-          <li><Link to="/show-room">Example Room</Link></li>
+          {/* <li>
+            <Link 
+              onClick={() => {
+                  window.sessionStorage.setItem('room_id', room.room_id)
+                  window.sessionStorage.setItem('room_name', room.room_name)
+              }} 
+              to='/show-room'>
+              {room.room_name}
+            </Link>
+            <button onClick={() => deleteRoom(room.room_id)}>DELETE</button>
+          </li> */}
           {showRooms}
         </ul>
       </section>

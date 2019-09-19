@@ -11,14 +11,14 @@ export default class Room extends Component {
 
   UNSAFE_componentWillMount() {
     // Get room data based on the logged-in room ID
-    fetch(`http://localhost:8000/api/room-data/${window.sessionStorage.getItem('room_id')}`, {
+    fetch(`http://localhost:8000/api/rooms/${window.sessionStorage.getItem('room_id')}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
         'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
-      // If call is successfull
+      // If call is successful
       .then(res => res.json() )
       .then(res => {
         let data = [];
@@ -31,8 +31,8 @@ export default class Room extends Component {
         let dateArray = [];
 
         this.state.data.forEach(function(a) {
-          let date = moment.utc(a.date_added).format("YYYY MM DD")
-          startDate = moment.utc(startDate).format("YYYY MM DD")
+          let date = moment.utc(a.date_added, "YYYY MM DD")
+          startDate = moment.utc(startDate, "YYYY MM DD")
     
           if(date > startDate) {
             a.date_added = date
@@ -49,7 +49,7 @@ export default class Room extends Component {
   render() {
     const logbook = this.state.dateArray.map(function(date, i) {
       return <section className="log" key={i}>
-              <h3>{moment(date.date_added).format("MM/DD")}</h3>
+              <h3>{moment.utc(date.date_added).format("MM/DD")}</h3>
               <pre>{date.comments}</pre>
             </section>
     })

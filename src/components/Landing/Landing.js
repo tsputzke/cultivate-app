@@ -28,8 +28,6 @@ export default class Landing extends Component {
         window.sessionStorage.setItem('user_name', user.user_name)
         window.sessionStorage.setItem('isLoggedIn', 'true')
         this.context.toggleState()
-        // this.props.history.push(`/show-user`)
-        window.location.replace('/show-user')
       })
       .catch(res => {
         this.setState({ error: res.error })

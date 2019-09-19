@@ -11,15 +11,15 @@ export default class ViewData extends Component {
   }
 
   UNSAFE_componentWillMount() {
-    // Get room_data for a given room
-    fetch(`http://localhost:8000/api/room-data/${window.sessionStorage.getItem('room_id')}`, {
+    // Get room_data based on a given room_id
+    fetch(`http://localhost:8000/api/rooms/${window.sessionStorage.getItem('room_id')}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
         'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
-      // If call is successfull
+      // If call is successful
       .then(res => res.json() )
       .then(res => {
         let dateArray = [];

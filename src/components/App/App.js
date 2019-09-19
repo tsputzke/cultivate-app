@@ -20,27 +20,15 @@ class App extends Component {
     isLoggedIn: window.sessionStorage.getItem('isLoggedIn')
   }
 
+  // Toggle state true/false. Nav is conditionally rendered (below, in the return) if true.
   handleToggleState = () => {
-    if(!this.state.isLoggedIn) {
-      this.setState({ isLoggedIn: true })
-    } else {
-      this.setState({ isLoggedIn: false })
-    }
+    const currentState = this.state.isLoggedIn
+    this.setState({ isLoggedIn: !currentState})
   }
 
-  componentDidMount() {
-    /* if a user is logged in */
-    if (TokenService.hasAuthToken()) {
-      /*
-        Tell the token service to read the JWT, looking at the exp value
-        and queue a timeout just before the token expires
-      */
-      TokenService.queueCallbackBeforeExpiry()
-    }
-  }
-
+  // Handle room delete
   handleDeleteRoom = (roomId) => {
-    fetch(`http://localhost:8000/api/room-data/${roomId}`, {
+    fetch(`http://localhost:8000/api/rooms/${roomId}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -48,16 +36,22 @@ class App extends Component {
       }
     })
       // If call is successful
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
+      .then(response => {
+        if (!response.ok) {
+          // get the error message from the response,
+          return response.json().then(error => {
+            // then throw it
+            throw error
+          })
+        }
+          return({message: 'delete successful'});
+      })
       .then(window.location.reload())
   }
 
+  // Handle data delete for a given date
   handleDeleteByDate = (room_data_id) => {
-    fetch(`http://localhost:8000/api/data/${room_data_id}`, {
+    fetch(`http://localhost:8000/api/room-data/${room_data_id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -65,11 +59,16 @@ class App extends Component {
       }
     })
       // If call is successful
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
+      .then(response => {
+        if (!response.ok) {
+          // get the error message from the response,
+          return response.json().then(error => {
+            // then throw it
+            throw error
+          })
+        }
+          return({message: 'delete successful'});
+      })
       .then(window.location.reload())
   } 
 
@@ -79,6 +78,12 @@ class App extends Component {
       deleteByDate: this.handleDeleteByDate,
       toggleState: this.handleToggleState
     };
+
+    // If user is logged in
+    if (TokenService.hasAuthToken()) {
+      // Read the JWT, and queue a timeout just before the token expires.  
+      TokenService.queueCallbackBeforeExpiry()
+    }
 
     return (
       <UserContext.Provider value={value}>

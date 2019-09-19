@@ -10,6 +10,7 @@ export default class Registration extends Component {
     error: null,
   };
 
+  // Handle registration of new user
   handleNewUser = e => {
     e.preventDefault();
     const { user_name, password, confirm_password } = e.target
@@ -29,7 +30,6 @@ export default class Registration extends Component {
           user_name.value = ''
           password.value = ''
           this.props.history.push(`/`)
-          // window.location ='/show-user'
         })  
         .catch(res => {
           this.setState({ error: res.error })

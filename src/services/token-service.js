@@ -2,7 +2,7 @@ import jwtDecode from 'jwt-decode'
 import config from '../config'
 
 let _timeoutId
-const _TEN_SECONDS_IN_MS = 10000
+const _FIVE_SECONDS_IN_MS = 5000
 
 const TokenService = {
 
@@ -50,10 +50,9 @@ const TokenService = {
     */
     setTimeout(() => {
         /* the timoue will call this callback just before the token expires */
-        TokenService.clearAuthToken()
         sessionStorage.clear()
         window.location.reload()
-      }, msUntilExpiry - _TEN_SECONDS_IN_MS)
+      }, msUntilExpiry - _FIVE_SECONDS_IN_MS)
   },
   clearCallbackBeforeExpiry() {
     clearTimeout(_timeoutId)

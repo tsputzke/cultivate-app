@@ -4,6 +4,7 @@ import TokenService from '../../services/token-service'
 
 export default class AddData extends Component {
 
+  // Add data for a given date to a room
   handleAddData = e => {  
     e.preventDefault();
 
@@ -13,13 +14,6 @@ export default class AddData extends Component {
     const co2 = e.target.co2.value;
     const light = e.target.light.value;
     const comments = e.target.comments.value;
-
-    // //validate the input
-    // if (user_name === "") {
-    //   alert("Please enter username");
-    // } else if (password === "") {
-    //   alert("Please enter password");
-    // }
 
     const newDataObject = {
       room_id: window.sessionStorage.getItem('room_id'),
@@ -31,18 +25,23 @@ export default class AddData extends Component {
       comments: comments
     };
 
+    // console.log(newDataObject)
     fetch(`http://localhost:8000/api/room-data`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "content-type": "application/json",
+        'Content-Type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify(newDataObject)
     })
-      // Reload page if call is successful
+      // If call is successful
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+      // Show room if call is successful
       .then(this.props.history.push(`/show-room`))
-      // If call fails
-      .catch(err => console.log(err));
   };
 
   render() {

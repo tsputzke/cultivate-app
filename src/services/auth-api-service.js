@@ -22,11 +22,11 @@ const AuthApiService = {
       },
       body: JSON.stringify({ user_name, password }),
     })
-      .then(response =>
-        (!response.ok)
-          ? response.json().then(e => Promise.reject(e),
-								alert('Username / password combination not found'))
-          : response.json()
+      // If call is successful
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
       )
   },
   
