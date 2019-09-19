@@ -122,12 +122,14 @@ export default class User extends Component {
             <button className="new-room-button">Submit</button>
           </form>
         </section>
-        <section className="existing-rooms">
-        <h2>Choose Existing Room:</h2>
-        <ul>
-          {showRooms}
-        </ul>
-      </section>
+        {(showRooms.length) ? 
+          (<section className="existing-rooms">
+              <h2>Choose Existing Room:</h2>
+              <ul>
+                {showRooms}
+              </ul>
+            </section>) : null
+        }
       </div>
     )
   }

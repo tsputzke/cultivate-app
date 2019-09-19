@@ -23,7 +23,7 @@ export default class DataCharts extends Component {
     
     dateArray.forEach(function(date) {
       let dateAdded = moment.utc(date.date_added).format("MM/DD");
-      let dateCo2 = date.co2/10;
+      let dateCo2 = (date.co2) ? date.co2/10 : null;
       data.push([dateAdded, date.temperature, date.rh, dateCo2, date.light])
     })
     

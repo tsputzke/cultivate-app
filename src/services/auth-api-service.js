@@ -15,7 +15,7 @@ const AuthApiService = {
       )
   },
   postLogin({ user_name, password }) {
-    return fetch(`http://localhost:8000/api/auth/login`, {
+    return fetch(`http://localhost:8000/api/users/login`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

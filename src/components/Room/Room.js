@@ -27,7 +27,7 @@ export default class Room extends Component {
       })
       .then(res => {
         // Add data to state if data was from X months of startDate
-        let startDate = moment(Date.now()).subtract(3, 'months') 
+        let startDate = moment(Date.now()).subtract(1, 'month') 
         let dateArray = [];
 
         this.state.data.forEach(function(a) {
@@ -48,10 +48,12 @@ export default class Room extends Component {
 
   render() {
     const logbook = this.state.dateArray.map(function(date, i) {
-      return <section className="log" key={i}>
-              <h3>{moment.utc(date.date_added).format("MM/DD")}</h3>
-              <pre>{date.comments}</pre>
-            </section>
+      if(date.comments) {
+        return  (<section className="log" key={i}>
+                  <h3>{moment.utc(date.date_added).format("MM/DD")}</h3>
+                  <pre>{date.comments}</pre>
+                </section>) 
+      } else {return null}
     })
   
     const hasData = this.state.dateArray
@@ -67,7 +69,7 @@ export default class Room extends Component {
             {(hasData.length > 0) ? (
               <DataCharts dateArray={this.state.dateArray} />
             ) : (
-              <h3>No data to display</h3>
+              <h3 className="no-chart-data">No data to display</h3>
             )}
             
             <Link to='/add-data'>

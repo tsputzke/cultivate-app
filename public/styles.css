@@ -194,6 +194,10 @@ Content styles (Main Module)
   margin: auto;
 }
 
+.chart-display {
+  overflow-x: auto;
+}
+
 /* User */
 .user {
   margin: auto;
