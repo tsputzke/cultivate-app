@@ -9,10 +9,10 @@ export default class AddData extends Component {
     e.preventDefault();
 
     const date_added = e.target.date_added.value;
-    const temperature = e.target.temperature.value;
-    const rh = e.target.rh.value;
-    const co2 = e.target.co2.value;
-    const light = e.target.light.value;
+    const temperature = e.target.temperature.value || null;
+    const rh = e.target.rh.value || null;
+    const co2 = e.target.co2.value || null;
+    const light = e.target.light.value || null;
     const comments = e.target.comments.value;
 
     const newDataObject = {
@@ -24,7 +24,7 @@ export default class AddData extends Component {
       light: light,
       comments: comments
     };
-
+    
     // console.log(newDataObject)
     fetch(`http://localhost:8000/api/room-data`, {
       method: 'POST',

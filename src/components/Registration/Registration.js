@@ -15,6 +15,12 @@ export default class Registration extends Component {
     e.preventDefault();
     const { user_name, password, confirm_password } = e.target
 
+    // Confirm username is greater than 5 characters in length
+    if (user_name.value.length < 5) {
+      alert('username must be greater than 5 characters in length')
+      window.location ='/registration'
+    }
+
     // Confirm that passwords match
     if (password.value !== confirm_password.value) {
       alert('passwords must match')
@@ -48,11 +54,11 @@ export default class Registration extends Component {
             <legend>Create Account: </legend>
             <div>
               <label htmlFor="user_name">Username: </label>
-              <input type="text" name="user_name" />
+              <input maxLength="20" type="text" name="user_name" />
             </div>
             <div>
               <label htmlFor="password">Password: </label>
-              <input type="password" name="password" />
+              <input maxLength="20" type="password" name="password" />
             </div>
             <div>
               <label htmlFor="confirm_password">Confirm Password: </label>

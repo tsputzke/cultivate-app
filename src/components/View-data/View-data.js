@@ -32,7 +32,7 @@ export default class ViewData extends Component {
 
   render() {
     const deleteByDate = this.context.deleteByDate
-    // Create table row for each date from the dataArray in state
+    // Create table row for each date from the dateArray in state
     const populateTable = this.state.dateArray.reverse().map((date, i) => {
       return <tr key={i}><td><button onClick={() => deleteByDate(date.room_data_id)}>Delete</button></td><td>{moment.utc(date.date_added).format("MM/DD")}</td><td>{date.temperature}</td><td>{date.rh}</td><td>{date.co2}</td><td>{date.light}</td><td><pre>{date.comments}</pre></td></tr>}) 
 

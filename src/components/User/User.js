@@ -113,11 +113,11 @@ export default class User extends Component {
           >
             <div>
               <label htmlFor="room_name">Room Name: </label>
-              <input type="text" name="room_name" required />
+              <input maxLength="20" type="text" name="room_name" required />
             </div>
             <div>
               <label htmlFor="room_description">Description: </label>
-              <input type="text" name="room_description" />
+              <input maxLength="50" type="text" name="room_description" />
             </div>
             <button className="new-room-button">Submit</button>
           </form>
