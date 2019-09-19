@@ -52,7 +52,14 @@ export default class User extends Component {
           to='/show-room'>
           {room.room_name}
         </Link>
-        <button onClick={() => deleteRoom(room.room_id)}>DELETE</button>
+        <p>{room.room_description}</p>
+        <button 
+          onClick={() => {
+            if (window.confirm("Are you sure you want to delete this room?"))
+            deleteRoom(room.room_id)
+          }}>
+          DELETE
+        </button>
       </li>
     })
   }
@@ -118,17 +125,6 @@ export default class User extends Component {
         <section className="existing-rooms">
         <h2>Choose Existing Room:</h2>
         <ul>
-          {/* <li>
-            <Link 
-              onClick={() => {
-                  window.sessionStorage.setItem('room_id', room.room_id)
-                  window.sessionStorage.setItem('room_name', room.room_name)
-              }} 
-              to='/show-room'>
-              {room.room_name}
-            </Link>
-            <button onClick={() => deleteRoom(room.room_id)}>DELETE</button>
-          </li> */}
           {showRooms}
         </ul>
       </section>
