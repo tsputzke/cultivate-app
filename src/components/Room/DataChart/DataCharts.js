@@ -74,21 +74,24 @@ export default class DataCharts extends Component {
     };
 
     return (
-      <div className="chart-display">
-        {}
-        <Chart
-          chartType="LineChart"
-          data={data}
-          options={options}
-          width="600px"
-          height="300px"
-        />
-        <ul>
-          <li><span style={{color: chartColors[0]}}>---- </span><strong>Temp (C): </strong>Low: {lowVal('temp')}, High: {highVal('temp')}</li>
-          <li><span style={{color: chartColors[1]}}>---- </span><strong>RH (%): </strong>Low: {lowVal('rh')}, High: {highVal('rh')}</li>
-          <li><span style={{color: chartColors[2]}}>---- </span><strong>CO<sub>2</sub> (ppm) [x10]: </strong>Low: {lowVal('co2')}, High: {highVal('co2')}</li>
-          <li><span style={{color: chartColors[3]}}>---- </span><strong>Light (PPFD): </strong>Low: {lowVal('light')}, High: {highVal('light')}</li>
-        </ul>
+      <div>
+        <div className="chart-display">
+          <Chart
+            chartType="LineChart"
+            data={data}
+            options={options}
+            width="600px"
+            height="300px"
+          />
+        </div>
+        <div className="chart-legend">
+          <ul>
+            <li><span style={{color: chartColors[0]}}>---- </span><strong>Temp (C): </strong>Low: {lowVal('temp')}, High: {highVal('temp')}</li>
+            <li><span style={{color: chartColors[1]}}>---- </span><strong>RH (%): </strong>Low: {lowVal('rh')}, High: {highVal('rh')}</li>
+            <li><span style={{color: chartColors[2]}}>---- </span><strong>CO<sub>2</sub> (ppm) [x10]: </strong>Low: {lowVal('co2')}, High: {highVal('co2')}</li>
+            <li><span style={{color: chartColors[3]}}>---- </span><strong>Light (PPFD): </strong>Low: {lowVal('light')}, High: {highVal('light')}</li>
+          </ul>
+        </div>
       </div>
     );
   }

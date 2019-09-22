@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment'
+import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 
 export default class AddData extends Component {
@@ -48,6 +49,7 @@ export default class AddData extends Component {
     return (
       <div className='add-data'>
         <section className="add-data-form">
+        <button className='back-button'><Link to='/show-room'>Back</Link></button>
           <form onSubmit={this.handleAddData}>
             <fieldset>
               <legend>Add Data: </legend>

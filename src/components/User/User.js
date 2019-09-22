@@ -43,17 +43,20 @@ export default class User extends Component {
     const deleteRoom = this.context.deleteRoom
     const userRooms = this.state.rooms
     return userRooms.map(function(room, i) {
-      return <li key={i}>
-        <Link 
-          onClick={() => {
-              window.sessionStorage.setItem('room_id', room.room_id)
-              window.sessionStorage.setItem('room_name', room.room_name)
-          }} 
-          to='/show-room'>
-          {room.room_name}
-        </Link>
-        <p>{room.room_description}</p>
+      return <li className="existing-room-li" key={i}>
+        <div className="room-div">
+          <Link 
+            onClick={() => {
+                window.sessionStorage.setItem('room_id', room.room_id)
+                window.sessionStorage.setItem('room_name', room.room_name)
+            }} 
+            to='/show-room'>
+            {room.room_name}
+          </Link>
+          <p>{room.room_description}</p>
+        </div>
         <button 
+          className="delete-room"
           onClick={() => {
             if (window.confirm("Are you sure you want to delete this room?"))
             deleteRoom(room.room_id)
@@ -104,27 +107,29 @@ export default class User extends Component {
     const userName = window.sessionStorage.getItem('user_name')
     return (
       <div className='user'>
-        <h1 className='center-align'>Hello, {userName}</h1>
+        <h1 className='center-align title-style'>Hello, <span className='user_name-title'>{userName.toUpperCase()}</span></h1>
         <section className="user-section">
-          <h2 className="room-form-title">Create Room:</h2>
           <form 
-            id="create-room-form"
+            className="create-room-form"
             onSubmit={this.handleNewRoom}
           >
-            <div>
-              <label htmlFor="room_name">Room Name: </label>
-              <input maxLength="20" type="text" name="room_name" required />
-            </div>
-            <div>
-              <label htmlFor="room_description">Description: </label>
-              <input maxLength="50" type="text" name="room_description" />
-            </div>
-            <button className="new-room-button">Submit</button>
+            <fieldset>
+              <legend className="strong create-room-legend">Create New Room: </legend>
+              <div>
+                <label htmlFor="room_name">Room Name: </label>
+                <input maxLength="20" type="text" name="room_name" required />
+              </div>
+              <div>
+                <label htmlFor="room_description">Description: </label>
+                <input maxLength="50" type="text" name="room_description" />
+              </div>
+              <button className="new-room-button">Submit</button>
+            </fieldset>
           </form>
         </section>
         {(showRooms.length) ? 
-          (<section className="existing-rooms">
-              <h2>Choose Existing Room:</h2>
+          (<section className="existing-rooms title-style">
+              <h2 className="strong existing-room-title">Choose Existing Room:</h2>
               <ul>
                 {showRooms}
               </ul>

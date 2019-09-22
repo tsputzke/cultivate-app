@@ -5,11 +5,14 @@ export default class About extends Component {
   render() {
     return (
       <section className='about'>
-        <h1 className='center-align'>ABOUT PAGE</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Integer eget aliquet nibh praesent tristique. Sed odio morbi quis commodo odio. Sit amet aliquam id diam maecenas ultricies mi. Dignissim enim sit amet venenatis urna cursus eget. Vivamus arcu felis bibendum ut tristique et egestas quis. Adipiscing bibendum est ultricies integer quis auctor elit sed. Montes nascetur ridiculus mus mauris. Tempor orci dapibus ultrices in iaculis nunc sed. 
+        <h1 className='center-align title-style'>What is Cultivate?</h1>
+        <p>Cultivate is a grow-room tracking application designed to keep your plant and mushroom growing data organized. 
           <br/><br/>
-          <button className='back-button'><Link to='/'>Back</Link></button>
+          You can quickly create rooms, log your data, and access data trends and comments in your logbook. Whether you want to track your fertilizer schedule for that orchid your grandma gave you for your birthday, or you have a production greenhouse complex, Cultivate has got your back. 
+          <br/><br/>
+          Try it out for yourself! Click the 'back' button below to return to the login page and use the test user credentials to check it out.
+          <br/><br/>
+          <Link to='/'><button className='back-button'>Back</button></Link>
         </p>
       </section>
     )

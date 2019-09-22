@@ -9,6 +9,9 @@ Is a short set of CSS rules that resets the styling of all HTML elements to a co
   padding: 0;
   border: 0;
   font-size: 100%;
+  font-family: Nunito Sans;
+  background-color: #E9E7DA;
+  line-height: 1.5;
   /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
   box-sizing: border-box;
   /*reset Chrome user agent styles*/
@@ -54,8 +57,34 @@ General styles (General Module, wrapping around the modules below)
 (the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules below (h2, h3, h4, h5, h6, p, a, ul, li))
 */
 
-body {
-  line-height: 1.5;
+a {
+  text-decoration: none;
+  color: #49274A;
+  /* color: #373F27;  */
+  font-weight: 700;
+}
+
+li {
+  list-style: none;
+}
+
+.strong {
+  font-weight: 700;
+}
+
+input {
+  border: 1px solid black;
+  margin-bottom: 2px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.title-style {
+  font-family: Halant;
 }
 
 .center-align {
@@ -67,19 +96,26 @@ body {
 }
 
 .error {
+  font-size: .9em;
   color: red;
+  text-align: center;
 }
 
 button:hover {
-  background-color: pink;
+  background-color: #373F27;
+  color: white;
 }
 
 button {
+  border-radius: 3%;
+  font-family: Halant;
+  background-color: #636B46;
+  color: white;
   display: block; 
   margin: auto;
-  padding: 8px;
+  padding: 6px 10px;
   font-size: 1.2em;
-  border: 1px solid red;
+  border: 1px solid black;
 }
 
 /* -------------------------------------
@@ -91,18 +127,19 @@ Header styles (Main Module)
 .nav {
   text-align: center;
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  background-color: #aaa;
+  background-color: #F2E085;
+  border: 1px solid black;
 }
 
 .nav-links {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  list-style: none;
+  /* list-style: none; */
   padding: 0 5%;
 }
 
@@ -113,40 +150,85 @@ Content styles (Main Module)
 
 /* Landing */
 
+.landing-title {
+  font-size: 2em;
+}
+
 .landing-description {
-  margin-bottom: 50px;
+  margin: auto;
+  max-width: 350px;
+  text-align: center;
+  padding: 20px 0 30px 0;
 }
 
 .landing {
+  height: 100vh;
   margin: auto;
-  padding-top: 100px;
+  padding-top: 60px;
   width: 80%;
 }
 
 /* LoginForm */
 .login {
-  padding: 15px 30px;
+  font-size: .9em;
+  padding: 20px;
   text-align: center;
   margin: auto;
-  border: 1px solid black;
+  border: 3px solid #636B46;
   width: 250px;
-  height: 250px;
+  height: 350px;
 }
+
+.login-legend {
+  font-size: 1.2em;
+  margin: 8px 0;
+}
+.login-button {
+  margin-top: 10px;
+}
+
+.login-info p:first-child {
+  padding: 8px 0;
+}
+
+.login-info p:nth-child(3) {
+  padding: 8px 0;
+}
+
 
 /* Registration */
 .registration {
+  font-size: .9em;
+  height: 100vh;
   margin: auto;
-  padding-top: 200px;
+  padding-top: 100px;
   width: 80%;
 }
 
 .registration-form {
-  padding: 20px;
+  padding: 30px 15px;
   text-align: center;
   margin: auto;
-  border: 1px solid black;
-  width: 400px;
-  height: 350px;
+  border: 3px solid #636B46;
+  width: 250px;
+  height: 430px;
+}
+
+.registration-legend {
+  font-size: 1.2em;
+  margin: 8px 0;
+}
+
+.registration-button {
+  margin-top: 10px;
+}
+
+.registration-form p {
+  padding: 8px 0;
+}
+
+.password-rules {
+  padding: 8px 0;
 }
 
 /* Room  */
@@ -194,14 +276,15 @@ Content styles (Main Module)
   margin: auto;
 }
 
-.chart-display {
+.chart-display div{
   overflow-x: auto;
 }
 
 /* User */
 .user {
   margin: auto;
-  padding-top: 100px;
+  height: 100vh;
+  padding-top: 60px;
   width: 80%;
 }
 
@@ -209,20 +292,77 @@ Content styles (Main Module)
   padding: 15px 30px;
   text-align: center;
   margin: auto;
-  border: 1px solid black;
+  border: 3px solid #636B46;
   width: 250px;
   height: 250px;
+}
+
+.user_name-title {
+  color: #49274A;
+  font-family: Halant;
+}
+
+h1 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.create-room-legend {
+  font-size: 1.2em;
+  margin: 8px 0;
+}
+
+.new-room-button {
+  margin-top: 10px;
 }
 
 /* ExistingRooms */
 .existing-rooms {
   text-align: center;
   margin: auto;
+  padding-top: 10px;
+  width: 250px;
 }
 
 .existing-rooms ul {
   list-style: none;
   padding: 0;
+}
+
+.existing-room-title {
+  font-size: 1.2em;
+  margin: 8px 0;
+}
+
+.existing-room-li {
+  border: 1px solid black;
+  padding: 5px;
+  display: flex;
+  min-height: 80px;
+}
+
+.existing-room-li a {
+  font-size: 1.2em;
+}
+
+.room-div {
+  text-align: center;
+  margin: auto;
+}
+
+.delete-room {
+  /* margin: 0px; */
+  color: black;
+  background-color: #F2E085;
+  vertical-align:top;
+  font-weight: 700;
+  font-size: .8em;
+  width:70px;height:30px;
+  transform:rotate(7deg);
+  -ms-transform:rotate(90deg); /* IE 9 */
+  -moz-transform:rotate(90deg); /* Firefox */
+  -webkit-transform:rotate(90deg); /* Safari and Chrome */
+  -o-transform:rotate(90deg); /* Opera */
 }
 
 /* Add Data */
@@ -267,9 +407,14 @@ table, tr, th, td {
 /* About  */
 .about {
   margin: auto;
-  padding-top: 100px;
+  padding-top: 50px;
   min-height: 200px;
   width: 80%;
+}
+
+.about h1 {
+  font-size: 1.5em;
+  margin-bottom: 25px;
 }
 
 /* Page-Not-Found */

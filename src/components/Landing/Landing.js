@@ -37,20 +37,20 @@ export default class Landing extends Component {
     const { error } = this.state
     return (
       <div className='landing'>
-        <h1 className='center-align'>Cultivate</h1>
+        <h1 className='landing-title center-align title-style'>
+          Cultivate  
+        </h1>
         <p className='landing-description'>
-          Grow smarter. <br/> To learn about tracking your grow room data with Cultivate, <span><Link to='/about'>click here</Link></span>.
+          Grow smarter. Track 
+          your grow-room data with Cultivate. To learn more, <span><Link to='/about'><u>click here</u></Link></span>. 
         </p>
         <section className="login">
           <form
             className="login-form"
             onSubmit={this.handleLogin}
           >
-            <div role='alert'>
-              {error && <p className='red'>{error}</p>}
-            </div>
             <fieldset>
-              <legend>User Login:</legend>
+              <legend className="strong login-legend">User Login:</legend>
               <div>
                 <label htmlFor="user_name"> Username: </label>
                 <input type="text" name="user_name" required />
@@ -60,10 +60,16 @@ export default class Landing extends Component {
                 <input type="password" name="password" required />
               </div>
               <button className="login-button" type="submit">Login</button>
-              <p>New user? <span><Link to='/registration'>register here</Link></span></p>
-              <p>Or, sign in as a testuser to look around. Username: TestUser Password: testuser1!</p>
+              <section className="login-info">
+                <p>New user? <span><Link to='/registration'><u>register here</u></Link></span></p>
+                <hr />
+                <p><strong>Login as a test user:</strong> <br /> <u>Username:</u> TestUser <br /> <u>Password:</u> testuser1!</p>
+              </section>
             </fieldset>
           </form>
+          <div role='alert'>
+            {error && <p className='error'>{error}</p>}
+          </div>
         </section>
       </div>
     )

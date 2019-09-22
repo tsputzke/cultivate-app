@@ -17,14 +17,18 @@ export default class Registration extends Component {
 
     // Confirm username is greater than 5 characters in length
     if (user_name.value.length < 5) {
-      alert('username must be greater than 5 characters in length')
-      window.location ='/registration'
+      this.setState({ error: 'Username must be 8+ characters' })
+      // alert('username must be greater than 5 characters in length')
+      // window.location ='/registration'
+      throw Error
     }
 
     // Confirm that passwords match
     if (password.value !== confirm_password.value) {
-      alert('passwords must match')
-      window.location ='/registration'
+      this.setState({ error: 'Passwords must match' })
+      // alert('passwords must match')
+      // window.location ='/registration'
+      throw Error
     }
 
     this.setState({ error: null })
@@ -47,11 +51,8 @@ export default class Registration extends Component {
     return (
       <div className='registration'>
         <form className="registration-form" onSubmit={this.handleNewUser}>
-          <div role='alert'>
-            {error && <p className='error'>{error}</p>}
-          </div>
           <fieldset>
-            <legend>Create Account: </legend>
+            <legend className="strong registration-legend">Create Account: </legend>
             <div>
               <label htmlFor="user_name">Username: </label>
               <input maxLength="20" type="text" name="user_name" />
@@ -66,11 +67,20 @@ export default class Registration extends Component {
             </div>
 
             <button className="registration-button" type="submit">Submit</button>
-
-            <p>Password must be at least 8 characters long. It must contain at least one number and special character</p>
-
             <p>Already a user? <span><Link to='/'>login here</Link></span></p>
+            <hr />
+            <div className="password-rules">
+              <strong>Password must contain: </strong>
+              <ul>
+                <li>8+ characters.</li>
+                <li>At least 1 number.</li>
+                <li>At least 1 special character.</li>
+              </ul>
+            </div>
           </fieldset>
+          <div role='alert'>
+            {error && <p className='error'>{error}</p>}
+          </div>
         </form>
       </div>
     );
