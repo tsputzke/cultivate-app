@@ -28,7 +28,7 @@ class App extends Component {
 
   // Handle room delete
   handleDeleteRoom = (roomId) => {
-    fetch(`http://localhost:8000/api/rooms/${roomId}`, {
+    fetch(`http://localhost:8000/api/rooms/delete/${roomId}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

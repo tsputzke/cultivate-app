@@ -22,7 +22,7 @@ export default class User extends Component {
   componentDidMount() {
     // Update state with array of rooms based on user_id
     const userId = window.sessionStorage.getItem('user_id')
-      fetch(`http://localhost:8000/api/users/${userId}`, {
+      fetch(`http://localhost:8000/api/rooms/${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

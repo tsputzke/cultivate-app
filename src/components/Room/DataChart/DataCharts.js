@@ -30,14 +30,6 @@ export default class DataCharts extends Component {
     const options = {
       curveType: "function",
       legend: {position: "none"},
-      chartArea: {
-        top: 20,
-        bottom: 20
-      },
-      explorer: {
-        axis: 'horizontal', 
-        keepInBounds: true
-      },
       colors: chartColors
     };
 
@@ -80,7 +72,7 @@ export default class DataCharts extends Component {
             chartType="LineChart"
             data={data}
             options={options}
-            width="600px"
+            width="500px"
             height="300px"
           />
         </div>
