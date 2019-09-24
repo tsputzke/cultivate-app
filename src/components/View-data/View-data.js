@@ -3,6 +3,7 @@ import moment from 'moment'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import UserContext from '../../context/user-context'
+import config from '../../config'
 
 export default class ViewData extends Component {
   static contextType = UserContext
@@ -12,7 +13,7 @@ export default class ViewData extends Component {
 
   UNSAFE_componentWillMount() {
     // Get room_data based on a given room_id
-    fetch(`http://localhost:8000/api/room-data/${window.sessionStorage.getItem('room_id')}`, {
+    fetch(config.API_ENDPOINT + `/api/room-data/${window.sessionStorage.getItem('room_id')}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",

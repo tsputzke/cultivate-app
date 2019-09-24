@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
 import UserContext from '../../context/user-context'
 import { Link } from 'react-router-dom';
+import config from '../../config'
 
 export default class User extends Component {
   static contextType = UserContext
@@ -22,7 +23,7 @@ export default class User extends Component {
   componentDidMount() {
     // Update state with array of rooms based on user_id
     const userId = window.sessionStorage.getItem('user_id')
-      fetch(`http://localhost:8000/api/rooms/${userId}`, {
+      fetch(config.API_ENDPOINT + `/api/rooms/${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -85,7 +86,7 @@ export default class User extends Component {
       room_description: room_description
     };
     
-    fetch(`http://localhost:8000/api/rooms`, {
+    fetch(config.API_ENDPOINT + `/api/rooms`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

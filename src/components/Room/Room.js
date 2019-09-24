@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service'
 import DataCharts from './DataChart/DataCharts'
 import moment from 'moment'
+import config from '../../config'
 
 export default class Room extends Component {
   state = {
@@ -11,7 +12,7 @@ export default class Room extends Component {
 
   UNSAFE_componentWillMount() {
     // Get room data based on the logged-in room ID
-    fetch(`http://localhost:8000/api/room-data/${window.sessionStorage.getItem('room_id')}`, {
+    fetch(config.API_ENDPOINT + `/api/room-data/${window.sessionStorage.getItem('room_id')}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
+import config from '../../config'
 
 export default class AddData extends Component {
 
@@ -27,7 +28,7 @@ export default class AddData extends Component {
     };
     
     // console.log(newDataObject)
-    fetch(`http://localhost:8000/api/room-data`, {
+    fetch(config.API_ENDPOINT + `/api/room-data`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

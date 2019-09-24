@@ -13,6 +13,7 @@ import UserContext from '../../context/user-context'
 import PrivateRoute from '../../utils/PrivateOnlyRoute'
 import PublicOnlyRoute from '../../utils/PublicOnlyRoute'
 import TokenService from '../../services/token-service'
+import config from '../../config'
 
 class App extends Component {
 
@@ -28,7 +29,7 @@ class App extends Component {
 
   // Handle room delete
   handleDeleteRoom = (roomId) => {
-    fetch(`http://localhost:8000/api/rooms/delete/${roomId}`, {
+    fetch(config.API_ENDPOINT + `/api/rooms/delete/${roomId}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -51,7 +52,7 @@ class App extends Component {
 
   // Handle data delete for a given date
   handleDeleteByDate = (room_data_id) => {
-    fetch(`http://localhost:8000/api/room-data/${room_data_id}`, {
+    fetch(config.API_ENDPOINT + `/api/room-data/${room_data_id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
