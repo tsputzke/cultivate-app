@@ -14,6 +14,7 @@ import PrivateRoute from '../../utils/PrivateOnlyRoute'
 import PublicOnlyRoute from '../../utils/PublicOnlyRoute'
 import TokenService from '../../services/token-service'
 import config from '../../config'
+import '../App/styles.css'
 
 class App extends Component {
 
