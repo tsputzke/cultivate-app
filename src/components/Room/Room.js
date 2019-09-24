@@ -4,8 +4,11 @@ import TokenService from '../../services/token-service'
 import DataCharts from './DataChart/DataCharts'
 import moment from 'moment'
 import config from '../../config'
+import UserContext from '../../context/user-context'
 
 export default class Room extends Component {
+  static contextType = UserContext
+
   state = {
     dateArray: [],
   }
@@ -57,9 +60,20 @@ export default class Room extends Component {
       } else {return null}
     })
   
+    const deleteRoom = this.context.deleteRoom
     const hasData = this.state.dateArray
     return (
       <div className='room'>
+        <div>
+          <button 
+            className="delete-room"
+            onClick={() => {
+              if (window.confirm("Are you sure you want to delete this room?"))
+              deleteRoom(window.sessionStorage.getItem('room_id'))
+            }}>
+            DELETE
+          </button>
+        </div>
         <h1 className='center-align'>{window.sessionStorage.getItem('room_name')}</h1>
         <section className="flex-section">
           <div className="logbook">

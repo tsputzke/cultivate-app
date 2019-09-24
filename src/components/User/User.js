@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
-import UserContext from '../../context/user-context'
 import { Link } from 'react-router-dom';
 import config from '../../config'
 
 export default class User extends Component {
-  static contextType = UserContext
-
   constructor(props) {
     super(props);
     this.state = {
@@ -41,7 +38,7 @@ export default class User extends Component {
 
   // Return list item for each room
   showRooms = () => {
-    const deleteRoom = this.context.deleteRoom
+
     const userRooms = this.state.rooms
     return userRooms.map(function(room, i) {
       return <li className="existing-room-li" key={i}>
@@ -56,14 +53,6 @@ export default class User extends Component {
           </Link>
           <p>{room.room_description}</p>
         </div>
-        <button 
-          className="delete-room"
-          onClick={() => {
-            if (window.confirm("Are you sure you want to delete this room?"))
-            deleteRoom(room.room_id)
-          }}>
-          DELETE
-        </button>
       </li>
     })
   }
@@ -100,7 +89,7 @@ export default class User extends Component {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
-      .then(window.location.reload())
+      // .then(window.location.reload())
     }
 
   render() {

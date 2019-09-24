@@ -350,21 +350,6 @@ h1 {
   margin: auto;
 }
 
-.delete-room {
-  /* margin: 0px; */
-  color: black;
-  background-color: #F2E085;
-  vertical-align:top;
-  font-weight: 700;
-  font-size: .8em;
-  width:70px;height:30px;
-  transform:rotate(7deg);
-  -ms-transform:rotate(90deg); /* IE 9 */
-  -moz-transform:rotate(90deg); /* Firefox */
-  -webkit-transform:rotate(90deg); /* Safari and Chrome */
-  -o-transform:rotate(90deg); /* Opera */
-}
-
 /* Add Data */
 .add-data {
   margin: auto;
