@@ -41,19 +41,20 @@ export default class User extends Component {
 
     const userRooms = this.state.rooms
     return userRooms.map(function(room, i) {
-      return <li className="existing-room-li" key={i}>
-        <div className="room-div">
-          <Link 
-            onClick={() => {
-                window.sessionStorage.setItem('room_id', room.room_id)
-                window.sessionStorage.setItem('room_name', room.room_name)
-            }} 
-            to='/show-room'>
-            {room.room_name}
-          </Link>
-          <p>{room.room_description}</p>
-        </div>
-      </li>
+      return <Link 
+      key={i}
+      onClick={() => {
+          window.sessionStorage.setItem('room_id', room.room_id)
+          window.sessionStorage.setItem('room_name', room.room_name)
+      }} 
+      to='/show-room'>
+        <li className="existing-room-li" >
+          <div className="room-div">
+            <h3>{room.room_name}</h3>     
+            <p>{room.room_description}</p>
+          </div>
+        </li>
+      </Link>
     })
   }
 
@@ -89,7 +90,7 @@ export default class User extends Component {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
-      // .then(window.location.reload())
+      .then(window.location.reload())
     }
 
   render() {

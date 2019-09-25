@@ -90,11 +90,6 @@ class App extends Component {
     return (
       <UserContext.Provider value={value}>
         <div className="App">
-          {(this.state.isLoggedIn) &&
-            <header id="nav-header">
-              <Nav />
-            </header>
-          }
           <main>
             <Switch>
               <PublicOnlyRoute
@@ -137,6 +132,11 @@ class App extends Component {
               />
             </Switch>
           </main>
+          {(this.state.isLoggedIn) &&
+            <footer id="nav-header">
+              <Nav />
+            </footer>
+          }
         </div>
       </UserContext.Provider>
     );

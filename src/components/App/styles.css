@@ -99,6 +99,7 @@ hr {
   font-size: .9em;
   color: red;
   text-align: center;
+  border: 1px solid black;
 }
 
 button:hover {
@@ -119,28 +120,40 @@ button {
 }
 
 /* -------------------------------------
-Header styles (Main Module)
-(all the styles inside the < header > or < nav > tags)
+Nav styles (Main Module)
+(all the styles inside the < footer > or < nav > tags)
 */
 
 /* Nav */
 .nav {
+  background-color: #CDA34F;
   text-align: center;
   position: fixed;
+  padding: 6px;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  background-color: #F2E085;
-  border: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.nav * {
+  background-color: #CDA34F;;
+}
+
+.nav a {
+  font-size: 1.2em;
+  color: black;
+}
+
+.home-icon {
+  font-size: 1.2em;
 }
 
 .nav-links {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  /* list-style: none; */
-  padding: 0 5%;
+  justify-content: space-around;
 }
 
 /* -------------------------------------
@@ -158,13 +171,13 @@ Content styles (Main Module)
   margin: auto;
   max-width: 350px;
   text-align: center;
-  padding: 20px 0 30px 0;
+  padding: 10px 0 20px 0;
 }
 
 .landing {
   height: 100vh;
   margin: auto;
-  padding-top: 60px;
+  padding-top: 50px;
   width: 80%;
 }
 
@@ -176,7 +189,7 @@ Content styles (Main Module)
   margin: auto;
   border: 3px solid #636B46;
   width: 250px;
-  height: 350px;
+  height: 330px;
 }
 
 .login-legend {
@@ -201,7 +214,7 @@ Content styles (Main Module)
   font-size: .9em;
   height: 100vh;
   margin: auto;
-  padding-top: 100px;
+  padding-top: 50px;
   width: 80%;
 }
 
@@ -211,7 +224,7 @@ Content styles (Main Module)
   margin: auto;
   border: 3px solid #636B46;
   width: 250px;
-  height: 430px;
+  height: 420px;
 }
 
 .registration-legend {
@@ -326,6 +339,8 @@ h1 {
 
 .existing-rooms ul {
   list-style: none;
+  margin: auto;
+  width: 80%;
   padding: 0;
 }
 
@@ -335,19 +350,24 @@ h1 {
 }
 
 .existing-room-li {
+  margin: 10px 0;
+  border-radius: 10px;
   border: 1px solid black;
   padding: 5px;
   display: flex;
   min-height: 80px;
 }
 
-.existing-room-li a {
-  font-size: 1.2em;
-}
-
 .room-div {
   text-align: center;
   margin: auto;
+}
+
+.room-div h3 {
+  font-size: 1.3em;
+}
+.room-div p {
+  color: black;
 }
 
 /* Add Data */
@@ -391,10 +411,11 @@ table, tr, th, td {
 
 /* About  */
 .about {
+  text-align: center;
   margin: auto;
   padding-top: 50px;
-  min-height: 200px;
-  width: 80%;
+  height: 100vh;
+  width: 85%;
 }
 
 .about h1 {

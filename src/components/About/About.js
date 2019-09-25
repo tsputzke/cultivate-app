@@ -6,11 +6,12 @@ export default class About extends Component {
     return (
       <section className='about'>
         <h1 className='center-align title-style'>What is Cultivate?</h1>
-        <p>Cultivate is a grow-room tracking application designed to keep your plant and mushroom growing data organized. 
+        <p>
+          Cultivate is a grow-room tracking application designed to keep your plant and fungi data organized. 
           <br/><br/>
-          You can quickly create rooms, log your data, and access data trends and comments in your logbook. Whether you want to track your fertilizer schedule for that orchid your grandma gave you for your birthday, or you have a production greenhouse complex, Cultivate has got your back. 
+          Quickly create rooms, log data, and access your data with ease. Whether you are trying to keep that orchid alive that your grandma gave you for your birthday, or you manage a production greenhouse, Cultivate has got your back. 
           <br/><br/>
-          Try it out for yourself! Click the 'back' button below to return to the login page and use the test user credentials to check it out.
+          <strong>Try it for yourself!</strong> Click the 'Back' button below to return to the login page and use the test user credentials to check it out.
           <br/><br/>
           <Link to='/'><button className='back-button'>Back</button></Link>
         </p>
