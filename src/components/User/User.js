@@ -69,6 +69,8 @@ export default class User extends Component {
     //validate the input
     if (room_name === "") {
       alert('Please enter a room name');
+
+      throw Error
     }
 
     const newRoomObject = {
