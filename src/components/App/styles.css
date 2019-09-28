@@ -145,16 +145,16 @@ Nav styles (Main Module)
 
 /* Nav */
 .nav {
-  height: 40px;
+  height: 45px;
   background-color: #CDA34F;
   text-align: center;
   position: fixed;
   padding: 6px;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .nav * {
@@ -265,6 +265,10 @@ Content styles (Main Module)
   border: none;
 }
 
+.registration-table input {
+  width: 120px;
+}
+
 .password-rules {
   padding: 8px 0;
 }
@@ -273,7 +277,7 @@ Content styles (Main Module)
 .room {
   height: 100vh;
   margin: auto;
-  padding-top: 50px;
+  padding-top: 60px;
   width: 95%;
 }
 
@@ -382,7 +386,7 @@ Content styles (Main Module)
 .user {
   margin: 0 auto 80px;
   height: 100vh;
-  padding-top: 60px;
+  padding-top: 80px;
   width: 80%;
 }
 
@@ -408,6 +412,10 @@ h1 {
 .create-room-legend {
   font-size: 1.2em;
   margin: 8px 0;
+}
+
+.create-room-form input {
+  width: 150px;
 }
 
 .new-room-button {
@@ -462,7 +470,7 @@ h1 {
 
 .add-data {
   margin: auto;
-  padding-top: 30px;
+  padding-top: 60px;
   width: 300px;
 }
 
@@ -508,7 +516,7 @@ table {
 /* View Data */
 .view-data {
   text-align: center;
-  padding-top: 30px;
+  padding-top: 60px;
   padding-bottom: 80px;
   min-height: 200px;
   margin: auto;
@@ -610,9 +618,7 @@ place all the mobile tables styles below this line
     /* Nav */
     .nav {
       padding-top: 10px;
-      top: 0;
       border-top: none;
-      border-bottom: 1px solid black;
       height: 52px;
     }
   
