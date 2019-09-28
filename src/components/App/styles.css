@@ -191,13 +191,13 @@ Content styles (Main Module)
   margin: auto;
   max-width: 350px;
   text-align: center;
-  padding: 10px 0 20px 0;
+  padding-bottom: 20px;
 }
 
 .landing {
   height: 100vh;
   margin: auto;
-  padding-top: 50px;
+  padding-top: 20px;
   width: 80%;
 }
 
@@ -209,7 +209,7 @@ Content styles (Main Module)
   margin: auto;
   border: 3px solid #636B46;
   width: 250px;
-  height: 330px;
+  height: 340px;
 }
 
 .login-legend {
@@ -377,8 +377,12 @@ Content styles (Main Module)
 
 .chart-display {
   height: 300px;
-  width: 100%;
-  overflow-x: auto;
+}
+
+.overflow {
+  border: 1px solid black;
+  overflow-x: scroll;
+  overflow-y: hidden; 
 }
 
 
@@ -575,7 +579,7 @@ table, tr, th, td {
 .about {
   text-align: center;
   margin: auto;
-  padding-top: 50px;
+  padding-top: 30px;
   height: 100vh;
   width: 85%;
 }
@@ -645,6 +649,18 @@ place all the mobile tables styles below this line
     .nav a:hover {
       color: #49274A;
     }
+
+  /* Landing */
+
+  .landing {
+    padding-top: 100px;
+  }
+
+  /* Registration */
+
+  .registration {
+    padding-top: 100px;
+  }
 
   /* About */
   .about {

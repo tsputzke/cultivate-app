@@ -10,13 +10,9 @@ const leafIcon = <FontAwesomeIcon icon={faLeaf} />
 
 
 export default class DataCharts extends Component {
-  state = {
-    displayNum: 7
-  }
   render() {
     // Sets number of data points in dateArray based on 'displayNum' in state
-    const dateArray = this.props.dateArray.slice(0,this.state.displayNum);
-    // const dateArray = this.props.dateArray;
+    const dateArray = this.props.dateArray.slice(0,7);
     
     // Set colors for chart
     const chartColors = ['black', 'green', 'red', 'orange'];
@@ -40,7 +36,14 @@ export default class DataCharts extends Component {
     const options = {
       curveType: "function",
       legend: {position: "none"},
-      colors: chartColors
+      colors: chartColors,
+      chartArea: {top: 50, bottom: 50, left: 50, width: '100%'},
+      yAxis: {
+        viewWindow: {
+            min: 0,
+            max: 200
+        }
+    }
     };
 
 
@@ -77,15 +80,13 @@ export default class DataCharts extends Component {
 
     return (
       <div>
-        {/* <div className="chart-display"> */}
-        <div>
+        <div className="overflow">
           <Chart
             className="chart-display"
             chartType="LineChart"
             data={data}
             options={options}
-            // width="800px"
-            // height="100%"
+            width="620px"
           />
         </div>
         <div className="chart-legend">
