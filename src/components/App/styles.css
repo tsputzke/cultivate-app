@@ -669,7 +669,11 @@ place all the mobile tables styles below this line
 
   /* Room */
   .room {
-    padding-top: 100px;
+    padding-top: 70px;
+  }
+
+  .delete-room {
+    margin-top: 0;
   }
 
   .flex-section {

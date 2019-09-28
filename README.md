@@ -1,50 +1,29 @@
-# cultivate-node-capstone
-A data logging application to track environmental factors for plant and mushroom grow spaces.
+# Cultivate - Node Capstone
+A data logging application to track the environmental factors important in plant and mushroom grow spaces.
 
-# insight•full
+## Working Prototype
 
-The insight•full app allows you to track your meditation sessions and add insights on how your session went. You can then view your practice over time and read your journal of insights gained during your sessions.
+View Live App here: [Cultivate](https://tsputzke-cultivate-app.now.sh)  
+View Node working prototype here: [Cultivate - API](https://pure-castle-83890.herokuapp.com) 
 
-### Working Prototype
+## Summary
+Cultivate is a grow-room tracking application designed to keep your plant and fungi data organized.
 
-View Node working prototype here: [insight•full](https://meditation-tracker.herokuapp.com/) 
-View React working prototype here: [insight•full](https://jes-a.github.io/meditation-app-fullstack-capstone-react/build)  
-
-
-## Site Map: MVP 
-
-![Site Map](/screenshots/designs/site-map.png)
-
-
-## UX & User Stories: MVP
-
-**Landing Page** 
-
-As a user, I want to understand what the app is so that I can decide if I want to sign up
-As a user, I want to understand what the app is so that I can decide if I want to sign up
-As a user, I want to understand what the app is so that I can decide if I want to sign up
-As a user, I want to understand what the app is so that I can decide if I want to sign up
-
-![Landing/ Login/ Member/ Room Data Wireframe](/readme-images/landing-login-member-room.jpg)
-
-As a user, I want to understand what the app is so that I can decide if I want to sign up
-As a user, I want to understand what the app is so that I can decide if I want to sign up
-
-![Add Data/ View Data Wireframe](/readme-images/add-data-view-data.jpg)
+As a user you can create rooms which store data, including: temperature, RH, CO2, Light levels, and comments. Quickly view data in a line graph, as well as weekly highs and lows. 
 
 ## Designs
 
 **Landing Page** 
 
-![Landing Page Design](/screenshots/designs/landing.png)
+![Landing Page Design](src/readme-images/Cultivate-landing.png)
 
-## Screenshots: MVP
+**Grow-Room View Page** 
 
-![Landing Page](/screenshots/landing-page.png)
+![Grow-room Page Design](src/readme-images/Cultivate-show-room.png)
 
 ## Technical
 
-Meditation Tracker was built with: 
+Cultivate was built with: 
 
 #### Front End
 
@@ -59,22 +38,6 @@ Meditation Tracker was built with:
 * Express.js
 * PostgreSQL
 * Mocha and Chai for testing
-
-
-### Responsive
-This app is built to be responsive to smaller screen sizes using a float-grid css and media screen width breakpoint of 700px for smaller screen sizes
-
-
-
-## Development Road Map
-Features for future iterations include: 
-- Add ability to view one insight entry on a separate page
-- Add filter to Insights page to filter by time, app, date
-- Add links to meditation resources
-- Add an app timer to meditate with
-
-
-#  The typical command lines for capstone projects
 
 ## Node command lines
 * npm install ==> install all node modules

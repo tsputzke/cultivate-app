@@ -91,6 +91,7 @@ export default class DataCharts extends Component {
         </div>
         <div className="chart-legend">
           <ul>
+            <li className= "strong">Weekly Highs and Lows:</li>
             <li><span style={{color: chartColors[0]}}>{leafIcon} </span><strong>Temp (C): </strong>Low: {lowVal('temp')}, High: {highVal('temp')}</li>
             <li><span style={{color: chartColors[1]}}>{leafIcon} </span><strong>RH (%): </strong>Low: {lowVal('rh')}, High: {highVal('rh')}</li>
             <li><span style={{color: chartColors[2]}}>{leafIcon} </span><strong>CO<sub>2</sub> (ppm) [x10]: </strong>Low: {lowVal('co2')}, High: {highVal('co2')}</li>
