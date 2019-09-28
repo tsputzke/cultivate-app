@@ -86,7 +86,7 @@ export default class DataCharts extends Component {
             chartType="LineChart"
             data={data}
             options={options}
-            width="620px"
+            width="100%"
           />
         </div>
         <div className="chart-legend">

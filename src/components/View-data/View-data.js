@@ -66,7 +66,6 @@ export default class ViewData extends Component {
 
     return (
       <section className='view-data'>
-        <button className='back-button'><Link to='/show-room'>{backIcon}</Link></button>
         {(insertData.length > 0) ? insertData : <h2 className="no-data">No Data to Display</h2>}
       </section>
     )

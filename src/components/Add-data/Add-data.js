@@ -54,7 +54,6 @@ export default class AddData extends Component {
   render() {
     return (
       <div className='add-data'>
-        <button className='back-button'><Link to='/show-room'>{backIcon}</Link></button>
         <section className="add-data-form">
           <form onSubmit={this.handleAddData}>
             <fieldset>
