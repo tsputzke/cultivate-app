@@ -91,7 +91,7 @@ export default class User extends Component {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
-      .then(window.location.reload()
+      .then(window.location.reload())
     }
 
   render() {
