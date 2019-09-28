@@ -5,6 +5,7 @@ import DataCharts from './DataChart/DataCharts'
 import moment from 'moment'
 import config from '../../config'
 import UserContext from '../../context/user-context'
+import NothingImg from '../../images/nothing-pixabay.jpg'
 
 export default class Room extends Component {
   static contextType = UserContext
@@ -55,7 +56,7 @@ export default class Room extends Component {
       if(date.comments) {
         return  (<section className="log" key={i}>
                   <h3>{moment.utc(date.date_added).format("MM/DD")}</h3>
-                  <pre>{date.comments}</pre>
+                  <p>{date.comments}</p>
                 </section>) 
       } else {return null}
     })
@@ -64,17 +65,8 @@ export default class Room extends Component {
     const hasData = this.state.dateArray
     return (
       <div className='room'>
-        <div>
-          <button 
-            className="delete-room"
-            onClick={() => {
-              if (window.confirm("Are you sure you want to delete this room?"))
-              deleteRoom(window.sessionStorage.getItem('room_id'))
-            }}>
-            DELETE
-          </button>
-        </div>
-        <h1 className='center-align'>{window.sessionStorage.getItem('room_name')}</h1>
+        <h1 className='room-name-title center-align'>{(window.sessionStorage.getItem('room_name')).toUpperCase()}</h1>
+        <p className='room-description center-align'>{window.sessionStorage.getItem('room_description')}</p>
         <section className="flex-section">
           <div className="logbook">
             <h2 className="logbook-title">Logbook</h2>
@@ -83,19 +75,27 @@ export default class Room extends Component {
           <div className="right-div">
             {(hasData.length > 0) ? (
               <DataCharts dateArray={this.state.dateArray} />
-            ) : (
-              <h3 className="no-chart-data">No data to display</h3>
-            )}
-            
-            <Link to='/add-data'>
-              <button className="data-button">Add Data</button>
-            </Link>
-            <br />
-            <Link to='/view-data'>
-              <button className="data-button">View Data</button>
-            </Link>
+            ) : <img className="no-chart-data" src={NothingImg} alt="The word 'Nothing' written on a chalkboard" />}
+            <section className="data-buttons">
+              <Link to='/add-data'>
+                <button className="data-button">Add Data</button>
+              </Link>
+              <br />
+              <Link to='/view-data'>
+                <button className="data-button">View Data</button>
+              </Link>
+            </section>
           </div>
         </section>
+        <button 
+          className="delete-room"
+          onClick={() => {
+            if (window.confirm("Are you sure you want to delete this room?"))
+            deleteRoom(window.sessionStorage.getItem('room_id'))
+            window.location ='/show-user'
+          }}>
+          Delete Room
+        </button>
       </div>
     )
   }

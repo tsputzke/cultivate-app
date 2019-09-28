@@ -9,7 +9,7 @@ Is a short set of CSS rules that resets the styling of all HTML elements to a co
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-family: Nunito Sans;
+  font-family: Nunito-Sans;
   background-color: #E9E7DA;
   line-height: 1.5;
   /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
@@ -75,12 +75,28 @@ li {
 input {
   border: 1px solid black;
   margin-bottom: 2px;
+  background-color: white;
 }
 
 hr {
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.back-button {
+  margin-bottom: 15px;
+  background-color: inherit;
+  border: none;
+}
+
+.back-button:hover {
+  background-color: inherit;
+}
+
+.back-button a {
+  color: #373F27;
+  font-size: 1.5em;
 }
 
 .title-style {
@@ -117,6 +133,9 @@ button {
   padding: 6px 10px;
   font-size: 1.2em;
   border: 1px solid black;
+  transition: .2s ease-in-out;
+   -moz-transition: .2s ease-in-out;
+   -webkit-transition: .2s ease-in-out;
 }
 
 /* -------------------------------------
@@ -126,6 +145,7 @@ Nav styles (Main Module)
 
 /* Nav */
 .nav {
+  height: 40px;
   background-color: #CDA34F;
   text-align: center;
   position: fixed;
@@ -215,7 +235,6 @@ Content styles (Main Module)
   height: 100vh;
   margin: auto;
   padding-top: 50px;
-  width: 80%;
 }
 
 .registration-form {
@@ -223,7 +242,7 @@ Content styles (Main Module)
   text-align: center;
   margin: auto;
   border: 3px solid #636B46;
-  width: 250px;
+  width: 300px;
   height: 420px;
 }
 
@@ -240,20 +259,37 @@ Content styles (Main Module)
   padding: 8px 0;
 }
 
+.registration-table,
+.registration-table td {
+  width: auto;
+  border: none;
+}
+
 .password-rules {
   padding: 8px 0;
 }
 
 /* Room  */
 .room {
+  height: 100vh;
   margin: auto;
-  padding-top: 100px;
+  padding-top: 50px;
   width: 95%;
+}
+
+.room-name-title {
+  color: #373F27;
+}
+
+.room-description {
+  margin-bottom: 15px;
 }
 
 .flex-section {
   display: flex;
   flex-direction: column-reverse;
+  margin: auto;
+  width: 300px;
 }
 
 .right-div {
@@ -270,18 +306,64 @@ Content styles (Main Module)
   /* border: 1px solid black; */
 }
 
+.no-chart-data {
+  width: 260px;
+  height: auto;
+  margin: 0px auto 10px;
+  border-radius: 3px;
+}
+
+.data-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.delete-room {
+  margin: 30px auto 80px;
+  color: white;
+  background-color: #49274A;
+}
+
+.delete-room:hover {
+  background-color: #AF473C;
+}
+
+.data-buttons button {
+  margin: 0 15px;
+}
+
 /* Logbook */
 .logbook {
   text-align: center;
   border: 1px solid black;
-  width: 350px;
+  border-radius: 3px;
+  width: 80%;
+  max-width: 400px;
   height: 100%;
   margin: auto;
 }
 
+.logbook-title {
+  padding: 10px 0px;
+  color: #373F27;
+  font-size: 1.3em;
+}
+
 .logbook-title, .log {
-  padding-bottom: 15px;
+  background-color: white;
+  padding: 5px 5px 10px 5px;
   border-bottom: 1px solid black;
+}
+
+.log > * {
+  background-color: white;
+}
+
+.no-data {
+  font-size: 1.5em;
+  margin: 100px 0;
 }
 
 /* DataCharts */
@@ -289,13 +371,16 @@ Content styles (Main Module)
   margin: auto;
 }
 
-.chart-display div{
+.chart-display {
+  height: 300px;
+  width: 100%;
   overflow-x: auto;
 }
 
+
 /* User */
 .user {
-  margin: auto;
+  margin: 0 auto 80px;
   height: 100vh;
   padding-top: 60px;
   width: 80%;
@@ -333,7 +418,7 @@ h1 {
 .existing-rooms {
   text-align: center;
   margin: auto;
-  padding-top: 10px;
+  padding: 10px 0 80px 0;
   width: 250px;
 }
 
@@ -356,6 +441,7 @@ h1 {
   padding: 5px;
   display: flex;
   min-height: 80px;
+  background-color: white;
 }
 
 .room-div {
@@ -364,40 +450,98 @@ h1 {
 }
 
 .room-div h3 {
-  font-size: 1.3em;
+  font-size: 1.2em;
+  background-color: white;
 }
 .room-div p {
   color: black;
+  background-color: white;
 }
 
 /* Add Data */
+
 .add-data {
   margin: auto;
-  padding-top: 200px;
-  width: 80%;
+  padding-top: 30px;
+  width: 300px;
+}
+
+.data-legend {
+  font-size: 1.2em;
+  margin: 8px 0;
+}
+
+.add-data-table,
+.add-data-table td {
+  border: none;
 }
 
 .add-data-form {
+  font-size: .9em;
   padding: 20px;
   text-align: center;
   margin: auto;
-  border: 1px solid black;
-  width: 500px;
-  height: 500px;
+  border: 3px solid #636B46;
+  height: 450px;
+}
+
+table {
+  table-layout: fixed;
+  width: 250px;
+}
+.short-input input,
+.short-input td {
+  width: 50px;
+}
+
+.add-data-button {
+  margin: 10px auto;
 }
 
 .comments-textbox {
-  height: 200px;
-  width: 400px;
+  background-color: white;
+  border: 1px solid black;
+  height: 120px;
+  width: 250px;
 }
 
 /* View Data */
 .view-data {
   text-align: center;
-  padding-top: 100px;
+  padding-top: 30px;
+  padding-bottom: 80px;
   min-height: 200px;
   margin: auto;
-  width: 80%;
+  width: 300px;
+}
+
+h2 {
+  font-size: 1.2em;
+  color: #373F27;
+}
+
+.inserted-data {
+  border: 3px solid #373F27;
+  background-color: white;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.inserted-data-ul {
+  margin: 5px auto;
+}
+
+.inserted-data-comments {
+  text-align: left;
+  padding: 5px;
+}
+
+.inserted-data h2,
+.inserted-data p, 
+.inserted-data li,
+.inserted-data span {
+  background-color: white;
 }
 
 .view-data-table {
@@ -407,6 +551,16 @@ h1 {
 table, tr, th, td {
   border: 1px solid black;
   padding: 5px;
+}
+
+.delete-data {
+  margin: 5px auto;
+  background-color: #49274A;
+  color: white;
+}
+
+.delete-data:hover {
+  background-color: #AF473C;
 }
 
 /* About  */
@@ -438,3 +592,88 @@ Responsive styles
 (the very last module in the CSS, contains all the media queries and it is dealing with the compatibility with mobiles and tablets)
 place all the mobile tables styles below this line
 */
+
+@media only screen and (min-width: 1000px) {
+    /* '*' */
+    .back-button {
+      display: none;
+    }
+
+    .about,
+    .room,
+    .user,
+    .add-data,
+    .view-data {
+      padding-top: 100px;
+    }
+
+    /* Nav */
+    .nav {
+      padding-top: 10px;
+      top: 0;
+      border-top: none;
+      border-bottom: 1px solid black;
+      height: 52px;
+    }
+  
+  
+    .nav-links {
+      display: flex;
+      justify-content: flex-start;
+    }
+  
+    .left-nav {
+      flex: 1;
+      text-align: left;
+    }
+  
+    .nav a {
+      margin: 10px 50px;
+      padding: 10px;
+      border-radius: 5%;
+      transition: .2s ease-in-out;
+      -moz-transition: .2s ease-in-out;
+      -webkit-transition: .2s ease-in-out;
+    }
+  
+    .nav a:hover {
+      color: #49274A;
+    }
+
+  /* About */
+  .about {
+    width: 500px;
+  }
+
+  /* Room */
+  .room {
+    padding-top: 100px;
+  }
+
+  .flex-section {
+    width: 90%;
+    flex-direction: row;
+  }
+
+  .right-div {
+    width: 50%;
+    margin-left: 80px;
+  }
+
+  .logbook {
+    width: 300px;
+    margin: 0 20px;
+  }
+
+  .no-chart-data {
+    width: 100%;
+  }
+
+  /* DataCharts */
+
+  /* Page-Not-Found */
+  .page-not-found-title {
+    padding-top: 200px;
+    font-size: 1.5em;
+  }
+}

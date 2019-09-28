@@ -2,15 +2,24 @@ import React, { Component } from "react";
 import { Chart } from "react-google-charts";
 import moment from 'moment'
 import 'moment-timezone';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLeaf } from '@fortawesome/free-solid-svg-icons'
+
+const leafIcon = <FontAwesomeIcon icon={faLeaf} />
+
 
 
 export default class DataCharts extends Component {
+  state = {
+    displayNum: 7
+  }
   render() {
-    const dateArray = this.props.dateArray;
+    // Sets number of data points in dateArray based on 'displayNum' in state
+    const dateArray = this.props.dateArray.slice(0,this.state.displayNum);
+    // const dateArray = this.props.dateArray;
     
     // Set colors for chart
-    const chartColors = ['blue', 'green', 'red', 'orange'];
-    // const chartColors = ['#f00', '#0f0', '#00f', '#0ff'];
+    const chartColors = ['black', 'green', 'red', 'orange'];
 
 
     // CHART
@@ -26,6 +35,7 @@ export default class DataCharts extends Component {
       let dateCo2 = (date.co2) ? date.co2/10 : null;
       data.push([dateAdded, date.temperature, date.rh, dateCo2, date.light])
     })
+
     
     const options = {
       curveType: "function",
@@ -67,21 +77,23 @@ export default class DataCharts extends Component {
 
     return (
       <div>
-        <div className="chart-display">
+        {/* <div className="chart-display"> */}
+        <div>
           <Chart
+            className="chart-display"
             chartType="LineChart"
             data={data}
             options={options}
-            width="500px"
-            height="300px"
+            // width="800px"
+            // height="100%"
           />
         </div>
         <div className="chart-legend">
           <ul>
-            <li><span style={{color: chartColors[0]}}>---- </span><strong>Temp (C): </strong>Low: {lowVal('temp')}, High: {highVal('temp')}</li>
-            <li><span style={{color: chartColors[1]}}>---- </span><strong>RH (%): </strong>Low: {lowVal('rh')}, High: {highVal('rh')}</li>
-            <li><span style={{color: chartColors[2]}}>---- </span><strong>CO<sub>2</sub> (ppm) [x10]: </strong>Low: {lowVal('co2')}, High: {highVal('co2')}</li>
-            <li><span style={{color: chartColors[3]}}>---- </span><strong>Light (PPFD): </strong>Low: {lowVal('light')}, High: {highVal('light')}</li>
+            <li><span style={{color: chartColors[0]}}>{leafIcon} </span><strong>Temp (C): </strong>Low: {lowVal('temp')}, High: {highVal('temp')}</li>
+            <li><span style={{color: chartColors[1]}}>{leafIcon} </span><strong>RH (%): </strong>Low: {lowVal('rh')}, High: {highVal('rh')}</li>
+            <li><span style={{color: chartColors[2]}}>{leafIcon} </span><strong>CO<sub>2</sub> (ppm) [x10]: </strong>Low: {lowVal('co2')}, High: {highVal('co2')}</li>
+            <li><span style={{color: chartColors[3]}}>{leafIcon} </span><strong>Light (PPFD): </strong>Low: {lowVal('light')}, High: {highVal('light')}</li>
           </ul>
         </div>
       </div>

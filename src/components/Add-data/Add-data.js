@@ -3,6 +3,10 @@ import moment from 'moment'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import config from '../../config'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
+
+const backIcon = <FontAwesomeIcon icon={faArrowAltCircleLeft} />
 
 export default class AddData extends Component {
 
@@ -43,46 +47,45 @@ export default class AddData extends Component {
           : res.json()
       )
       // Show room if call is successful
-      .then(this.props.history.push(`/show-room`))
+      .then(window.location= '/show-room')
+      // .then(this.props.history.push(`/show-room`))
   };
 
   render() {
     return (
       <div className='add-data'>
+        <button className='back-button'><Link to='/show-room'>{backIcon}</Link></button>
         <section className="add-data-form">
-        <button className='back-button'><Link to='/show-room'>Back</Link></button>
           <form onSubmit={this.handleAddData}>
             <fieldset>
-              <legend>Add Data: </legend>
-              <div>
-              <div>
-                <label htmlFor="date_added">Date: </label>
-                <input type="date" name="date_added" defaultValue={moment.utc().format("YYYY-MM-DD")} required />
-              </div>
-              <div>
-                <label htmlFor="temperature">Temperature (C): </label>
-                <input type="text" name="temperature"/>
-              </div>
-              <div>
-                <label htmlFor="rh">RH (%): </label>
-                <input type="text" name="rh" />
-              </div>
-              <div>
-                <label htmlFor="co2">CO2 (ppm): </label>
-                <input type="text" name="co2" />
-              </div>
-              <div>
-                <label htmlFor="light">Light (ppfd): </label>
-                <input type="text" name="light" />
-              </div>
-            </div>
+              <legend className="data-legend">Add Data: </legend>
+              <table className="add-data-table">
+                <tbody>
+                  <tr>
+                    <td><label htmlFor="date_added">Date: </label></td>
+                    <td><input type="date" name="date_added" defaultValue={moment.utc().format("YYYY-MM-DD")} required /></td>
+                  </tr>
+                  <tr className="short-input">
+                    <td><label htmlFor="temperature">Temp (C): </label></td>
+                    <td><input required  type="text" name="temperature"/></td>
+                    <td><label htmlFor="rh">RH (%): </label></td>
+                    <td><input required type="text" name="rh" /></td>
+                  </tr>
+                  <tr className="short-input">
+                    <td><label htmlFor="co2">CO2 (ppm): </label></td>
+                    <td><input required type="text" name="co2" /></td>
+                    <td><label htmlFor="light">Light (ppfd): </label></td>
+                    <td><input required type="text" name="light" /></td>
+                  </tr>
+                </tbody>
+              </table>
             <div>
               <label htmlFor="comments">Comments: </label>
               <br />
               <textarea name="comments" className="comments-textbox" rows="10" cols="30"></textarea> 
             </div>
             
-            <button type="submit">Submit</button>
+            <button className="add-data-button" type="submit">Submit</button>
 
             </fieldset>
           </form>

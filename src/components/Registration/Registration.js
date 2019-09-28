@@ -39,7 +39,8 @@ export default class Registration extends Component {
         .then(user => {
           user_name.value = ''
           password.value = ''
-          this.props.history.push(`/`)
+          // this.props.history.push(`/`)
+          .then(window.location= '/')
         })  
         .catch(res => {
           this.setState({ error: res.error })
@@ -53,19 +54,22 @@ export default class Registration extends Component {
         <form className="registration-form" onSubmit={this.handleNewUser}>
           <fieldset>
             <legend className="strong registration-legend">Create Account: </legend>
-            <div>
-              <label htmlFor="user_name">Username: </label>
-              <input maxLength="20" type="text" name="user_name" />
-            </div>
-            <div>
-              <label htmlFor="password">Password: </label>
-              <input maxLength="20" type="password" name="password" />
-            </div>
-            <div>
-              <label htmlFor="confirm_password">Confirm Password: </label>
-              <input type="password" name="confirm_password" />
-            </div>
-
+              <table className="registration-table">
+                <tbody>
+                  <tr>
+                    <td><label htmlFor="user_name">Username:</label></td>
+                    <td><input maxLength="20" type="text" name="user_name" /></td>
+                  </tr>
+                  <tr>
+                    <td><label htmlFor="password">Password:</label></td>
+                    <td><input maxLength="20" type="password" name="password" /></td>
+                  </tr>
+                  <tr>
+                    <td><label htmlFor="confirm_password">Confirm Password:</label></td>
+                    <td><input type="password" name="confirm_password" /></td>
+                  </tr>
+                </tbody>
+              </table>
             <button className="registration-button" type="submit">Submit</button>
             <p>Already a user? <span><Link to='/'>login here</Link></span></p>
             <hr />

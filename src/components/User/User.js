@@ -46,11 +46,12 @@ export default class User extends Component {
       onClick={() => {
           window.sessionStorage.setItem('room_id', room.room_id)
           window.sessionStorage.setItem('room_name', room.room_name)
+          window.sessionStorage.setItem('room_description', room.room_description)
       }} 
       to='/show-room'>
         <li className="existing-room-li" >
           <div className="room-div">
-            <h3>{room.room_name}</h3>     
+            <h3>{room.room_name.toUpperCase()}</h3>     
             <p>{room.room_description}</p>
           </div>
         </li>
@@ -62,8 +63,8 @@ export default class User extends Component {
   handleNewRoom = e => {
     e.preventDefault();
 
-    const room_name = e.target.room_name.value;
-    const room_description = e.target.room_description.value;
+    const room_name = e.target.room_name.value.trim();
+    const room_description = e.target.room_description.value.trim();
 
     //validate the input
     if (room_name === "") {
@@ -90,7 +91,7 @@ export default class User extends Component {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
-      .then(window.location.reload())
+      // .then(window.location.reload()
     }
 
   render() {

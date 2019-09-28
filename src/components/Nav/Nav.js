@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../../context/user-context'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
+
+const homeIcon = <FontAwesomeIcon icon={faHome} />
 
 export default class Nav extends Component {
   static contextType = UserContext
@@ -14,11 +18,11 @@ export default class Nav extends Component {
   render() {
     return (
       <nav className='nav'>
-        <ul className='nav-links'>
-          <li id="nav-button-left"><Link to='/about'>About.</Link></li>
-          <li className="home-icon"><Link to='/show-user'><i className="fas fa-home"></i></Link></li>
-          <li><Link onClick={this.handleLogoutClick} to='/'>Logout.</Link></li>
-        </ul>
+        <section className='nav-links'>
+          <div className="nav-button left-nav"><Link to='/about'>About.</Link></div>
+          <div className="home-icon right-nav"><Link to='/show-user'>{homeIcon}</Link></div>
+          <div className="nav-button right-nav"><Link onClick={this.handleLogoutClick} to='/'>Logout.</Link></div>
+        </section>
       </nav>
     )
   }

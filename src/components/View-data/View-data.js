@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import UserContext from '../../context/user-context'
 import config from '../../config'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
+
+const backIcon = <FontAwesomeIcon icon={faArrowAltCircleLeft} />
 
 export default class ViewData extends Component {
   static contextType = UserContext
@@ -34,28 +38,36 @@ export default class ViewData extends Component {
   render() {
     const deleteByDate = this.context.deleteByDate
     // Create table row for each date from the dateArray in state
-    const populateTable = this.state.dateArray.reverse().map((date, i) => {
-      return <tr key={i}><td><button onClick={() => deleteByDate(date.room_data_id)}>Delete</button></td><td>{moment.utc(date.date_added).format("MM/DD")}</td><td>{date.temperature}</td><td>{date.rh}</td><td>{date.co2}</td><td>{date.light}</td><td><pre>{date.comments}</pre></td></tr>}) 
+    // const populateTable = this.state.dateArray.reverse().map((date, i) => {
+    //   return <tr key={i}><td><button onClick={() => deleteByDate(date.room_data_id)}>Delete</button></td><td>{moment.utc(date.date_added).format("MM/DD")}</td><td>{date.temperature}</td><td>{date.rh}</td><td>{date.co2}</td><td>{date.light}</td><td><p>{date.comments}</p></td></tr>}) 
+
+    const insertData = this.state.dateArray.reverse().map((date, i) => {
+      return (
+        <section className="inserted-data" key={i}>
+          <h2>{moment.utc(date.date_added).format("MM / DD / YY")}</h2>
+          <ul className="inserted-data-ul">
+            <li><span className="strong">Temp (C): </span>{date.temperature}</li>
+            <li><span className="strong">RH (%): </span>{date.rh}</li>
+            <li><span className="strong">CO2 (ppm): </span>{date.co2}</li>
+            <li><span className="strong">Light (ppfd): </span>{date.light}</li>
+          </ul>
+          <p className="inserted-data-comments">{date.comments}</p>
+          <button 
+            className="delete-data" 
+            onClick={() => {
+              if (window.confirm("Are you sure you want to delete?"))
+              deleteByDate(date.room_data_id)
+            }}>
+              Delete
+          </button>
+        </section>
+      )
+    }) 
 
     return (
       <section className='view-data'>
-        <button className='back-button'><Link to='/show-room'>Back</Link></button>
-        <h1>View Data</h1>
-
-        <table className='view-data-table'>
-          <tbody>
-            <tr>
-              <th> Delete </th>
-              <th> Date </th>
-              <th> Temperature </th>
-              <th> RH </th>
-              <th> CO2 </th>
-              <th> Light </th>
-              <th> Comments </th>
-            </tr>
-            {populateTable}
-          </tbody>
-        </table>
+        <button className='back-button'><Link to='/show-room'>{backIcon}</Link></button>
+        {(insertData.length > 0) ? insertData : <h2 className="no-data">No Data to Display</h2>}
       </section>
     )
   }
