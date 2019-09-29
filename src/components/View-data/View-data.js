@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
 import moment from 'moment'
-import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import UserContext from '../../context/user-context'
 import config from '../../config'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
-
-const backIcon = <FontAwesomeIcon icon={faArrowAltCircleLeft} />
 
 export default class ViewData extends Component {
   static contextType = UserContext
