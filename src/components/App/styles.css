@@ -272,7 +272,7 @@ Content styles (Main Module)
   height: 100vh;
   margin: 0 auto 80px;
   padding-top: 80px;
-  width: 95%;
+  width: 300px;
 }
 
 .room-name-title {
@@ -302,9 +302,9 @@ Content styles (Main Module)
 .right-div ul {
   margin: auto;
   text-align: left;
-  width: 400px;
+  width: 300px;
   list-style: none;
-  padding: 20px;
+  padding: 20px 0;
   /* border: 1px solid black; */
 }
 
@@ -651,6 +651,10 @@ place all the mobile tables styles below this line
   }
 
   /* Room */
+  .room {
+    width: 95%;
+  }
+
   .flex-section {
     width: 90%;
     flex-direction: row;
