@@ -37,7 +37,7 @@ export default class DataCharts extends Component {
       curveType: "function",
       legend: {position: "none"},
       colors: chartColors,
-      chartArea: {top: 30, bottom: 20, left: 38, width: '100%'},
+      chartArea: {top: 30, bottom: 30, left: 38, width: '100%'},
       yAxis: {
         viewWindow: {
             min: 0
@@ -80,6 +80,7 @@ export default class DataCharts extends Component {
     return (
       <div>
         <div className="overflow">
+          <p className="lastData-title">Most recent five dates charted:</p>
           <Chart
             className="chart-display"
             chartType="LineChart"

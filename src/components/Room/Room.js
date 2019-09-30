@@ -67,7 +67,6 @@ export default class Room extends Component {
       <div className='room'>
         <h1 className='room-name-title center-align'>{(window.sessionStorage.getItem('room_name')).toUpperCase()}</h1>
         {!(window.sessionStorage.getItem('room_description') === 'null') ? <p className='room-description center-align'><strong>{window.sessionStorage.getItem('room_description')}</strong></p> : ''}
-        <p className="lastData-title">Most recent five dates charted:</p>
         <section className="flex-section">
           <div className="logbook">
             <h2 className="logbook-title">Logbook</h2>

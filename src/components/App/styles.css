@@ -277,6 +277,7 @@ Content styles (Main Module)
 
 .room-name-title {
   color: black;
+  text-decoration: underline;
 }
 
 .room-description {
@@ -285,6 +286,9 @@ Content styles (Main Module)
 
 .lastData-title {
   text-align: center;
+  background-color: white;
+  color: #373F27;
+  padding-top: 3px;
 }
 
 .flex-section {
@@ -373,8 +377,10 @@ Content styles (Main Module)
 }
 
 .overflow {
+  max-width: 400px;
+  margin: auto;
   border: 1px solid black;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   overflow-y: hidden; 
 }
 
