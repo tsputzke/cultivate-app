@@ -15,7 +15,7 @@ export default class DataCharts extends Component {
     const dateArray = this.props.dateArray.reverse().slice(0,5);
     
     // Set colors for chart
-    const chartColors = ['black', 'green', 'red', 'orange'];
+    const chartColors = ['black', 'green', 'maroon', 'orange'];
 
 
     // CHART
@@ -51,12 +51,12 @@ export default class DataCharts extends Component {
     // Get high or low value for an 'item' (eg. 'temp') passed in as an argument
     function lowVal(item) {
       let itemArray = getArrayByItem(item);
-      return itemArray.sort()[0]
+      return itemArray.sort(function(a, b){return a-b})[0]
     }
 
     function highVal(item) {
       let itemArray = getArrayByItem(item);
-      return itemArray.sort().reverse()[0]
+      return itemArray.sort(function(a, b){return a-b}).reverse()[0]
     }
 
     // Makes an array of values of an item passed in as an argument
@@ -91,7 +91,7 @@ export default class DataCharts extends Component {
         </div>
         <div className="chart-legend">
           <ul>
-            <li className= "strong">Weekly Highs and Lows:</li>
+            <li className= "strong">Five day highs and lows:</li>
             <li><span style={{color: chartColors[0]}}>{leafIcon} </span><strong>Temp (C): </strong>Low: {lowVal('temp')}, High: {highVal('temp')}</li>
             <li><span style={{color: chartColors[1]}}>{leafIcon} </span><strong>RH (%): </strong>Low: {lowVal('rh')}, High: {highVal('rh')}</li>
             <li><span style={{color: chartColors[2]}}>{leafIcon} </span><strong>CO<sub>2</sub> (ppm) [x10]: </strong>Low: {lowVal('co2')}, High: {highVal('co2')}</li>
