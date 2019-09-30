@@ -340,8 +340,7 @@ Content styles (Main Module)
   text-align: center;
   border: 1px solid black;
   border-radius: 3px;
-  width: 80%;
-  max-width: 400px;
+  width: 300px;
   height: 100%;
   margin: auto;
 }
@@ -668,12 +667,12 @@ place all the mobile tables styles below this line
 
   .right-div {
     width: 50%;
-    margin-left: 80px;
+    margin-left: 40px;
   }
 
   .logbook {
-    width: 300px;
-    margin: 0 20px;
+    max-width: 700px;
+    margin: 0 50px 0 80px;
   }
 
   .no-chart-data {
