@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddData component renders AddData by default 1`] = `
+<div
+  className="add-data"
+>
+  <section
+    className="add-data-form"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <fieldset>
+        <legend
+          className="data-legend"
+        >
+          Add Data: 
+        </legend>
+        <table
+          className="add-data-table"
+        >
+          <tbody>
+            <tr>
+              <td>
+                <label
+                  htmlFor="date_added"
+                >
+                  Date: 
+                </label>
+              </td>
+              <td>
+                <input
+                  defaultValue="2019-09-29"
+                  name="date_added"
+                  required={true}
+                  type="date"
+                />
+              </td>
+            </tr>
+            <tr
+              className="short-input"
+            >
+              <td>
+                <label
+                  htmlFor="temperature"
+                >
+                  Temp (C): 
+                </label>
+              </td>
+              <td>
+                <input
+                  name="temperature"
+                  required={true}
+                  type="text"
+                />
+              </td>
+              <td>
+                <label
+                  htmlFor="rh"
+                >
+                  RH (%): 
+                </label>
+              </td>
+              <td>
+                <input
+                  name="rh"
+                  required={true}
+                  type="text"
+                />
+              </td>
+            </tr>
+            <tr
+              className="short-input"
+            >
+              <td>
+                <label
+                  htmlFor="co2"
+                >
+                  CO2 (ppm): 
+                </label>
+              </td>
+              <td>
+                <input
+                  name="co2"
+                  required={true}
+                  type="text"
+                />
+              </td>
+              <td>
+                <label
+                  htmlFor="light"
+                >
+                  Light (ppfd): 
+                </label>
+              </td>
+              <td>
+                <input
+                  name="light"
+                  required={true}
+                  type="text"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <label
+            htmlFor="comments"
+          >
+            Comments: 
+          </label>
+          <br />
+          <textarea
+            className="comments-textbox"
+            cols="30"
+            name="comments"
+            rows="10"
+          />
+        </div>
+        <button
+          className="add-data-button"
+          type="submit"
+        >
+          Submit
+        </button>
+      </fieldset>
+    </form>
+  </section>
+</div>
+`;

@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Registration component renders Registration by default 1`] = `
+<div
+  className="registration"
+>
+  <form
+    className="registration-form"
+    onSubmit={[Function]}
+  >
+    <fieldset>
+      <legend
+        className="strong registration-legend"
+      >
+        Create Account: 
+      </legend>
+      <table
+        className="registration-table"
+      >
+        <tbody>
+          <tr>
+            <td>
+              <label
+                htmlFor="user_name"
+              >
+                Username:
+              </label>
+            </td>
+            <td>
+              <input
+                maxLength="20"
+                name="user_name"
+                type="text"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label
+                htmlFor="password"
+              >
+                Password:
+              </label>
+            </td>
+            <td>
+              <input
+                maxLength="20"
+                name="password"
+                type="password"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label
+                htmlFor="confirm_password"
+              >
+                Confirm Password:
+              </label>
+            </td>
+            <td>
+              <input
+                name="confirm_password"
+                type="password"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button
+        className="registration-button"
+        type="submit"
+      >
+        Submit
+      </button>
+      <p>
+        Already a user? 
+        <span>
+          <Link
+            to="/"
+          >
+            login here
+          </Link>
+        </span>
+      </p>
+      <hr />
+      <div
+        className="password-rules"
+      >
+        <strong>
+          Password must contain: 
+        </strong>
+        <ul>
+          <li>
+            8+ characters.
+          </li>
+          <li>
+            At least 1 number.
+          </li>
+          <li>
+            At least 1 special character.
+          </li>
+        </ul>
+      </div>
+    </fieldset>
+    <div
+      role="alert"
+    />
+  </form>
+</div>
+`;

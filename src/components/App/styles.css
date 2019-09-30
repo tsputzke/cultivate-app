@@ -123,6 +123,15 @@ button {
    -webkit-transition: .2s ease-in-out;
 }
 
+.rbutton {
+  color: white;
+  background-color: #AF473C;
+}
+
+.rbutton:hover {
+  background-color: #49274A;
+}
+
 /* -------------------------------------
 Nav styles (Main Module)
 (all the styles inside the < footer > or < nav > tags)
@@ -131,7 +140,7 @@ Nav styles (Main Module)
 /* Nav */
 .nav {
   height: 45px;
-  background-color: #CDA34F;
+  background-color: #636B46;
   text-align: center;
   position: fixed;
   padding: 6px;
@@ -143,12 +152,12 @@ Nav styles (Main Module)
 }
 
 .nav * {
-  background-color: #CDA34F;;
+  background-color: #636B46;;
 }
 
 .nav a {
   font-size: 1.2em;
-  color: black;
+  color: white;
 }
 
 .home-icon {
@@ -261,17 +270,21 @@ Content styles (Main Module)
 /* Room  */
 .room {
   height: 100vh;
-  margin: auto;
-  padding-top: 60px;
+  margin: 0 auto 80px;
+  padding-top: 80px;
   width: 95%;
 }
 
 .room-name-title {
-  color: #373F27;
+  color: black;
 }
 
 .room-description {
   margin-bottom: 15px;
+}
+
+.lastData-title {
+  text-align: center;
 }
 
 .flex-section {
@@ -304,6 +317,7 @@ Content styles (Main Module)
 
 .data-buttons {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   margin: 20px 0;
@@ -311,16 +325,10 @@ Content styles (Main Module)
 
 .delete-room {
   margin: 30px auto 80px;
-  color: white;
-  background-color: #49274A;
-}
-
-.delete-room:hover {
-  background-color: #AF473C;
 }
 
 .data-buttons button {
-  margin: 0 15px;
+  margin: 5px 15px;
 }
 
 /* Logbook */
@@ -336,7 +344,7 @@ Content styles (Main Module)
 
 .logbook-title {
   padding: 10px 0px;
-  color: #373F27;
+  color: black;
   font-size: 1.3em;
 }
 
@@ -361,7 +369,7 @@ Content styles (Main Module)
 }
 
 .chart-display {
-  height: 300px;
+  width: 100%;
 }
 
 .overflow {
@@ -389,7 +397,7 @@ Content styles (Main Module)
 }
 
 .user_name-title {
-  color: #49274A;
+  color: #AF473C;
   font-family: Halant;
 }
 
@@ -551,12 +559,6 @@ table, tr, th, td {
 
 .delete-data {
   margin: 5px auto;
-  background-color: #49274A;
-  color: white;
-}
-
-.delete-data:hover {
-  background-color: #AF473C;
 }
 
 /* About  */
@@ -606,7 +608,7 @@ place all the mobile tables styles below this line
       border-top: none;
       height: 52px;
     }
-  
+/*   
   
     .nav-links {
       display: flex;
@@ -616,7 +618,7 @@ place all the mobile tables styles below this line
     .left-nav {
       flex: 1;
       text-align: left;
-    }
+    } */
   
     .nav a {
       margin: 10px 50px;
@@ -628,7 +630,7 @@ place all the mobile tables styles below this line
     }
   
     .nav a:hover {
-      color: #49274A;
+      color: black;
     }
 
   /* Landing */
@@ -649,14 +651,6 @@ place all the mobile tables styles below this line
   }
 
   /* Room */
-  .room {
-    padding-top: 70px;
-  }
-
-  .delete-room {
-    margin-top: 0;
-  }
-
   .flex-section {
     width: 90%;
     flex-direction: row;

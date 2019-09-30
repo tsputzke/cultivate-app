@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewData component renders ViewData by default 1`] = `
+<section
+  className="view-data"
+>
+  <h2
+    className="no-data"
+  >
+    No Data to Display
+  </h2>
+</section>
+`;

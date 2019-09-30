@@ -12,7 +12,7 @@ const leafIcon = <FontAwesomeIcon icon={faLeaf} />
 export default class DataCharts extends Component {
   render() {
     // Sets number of data points in dateArray based on 'displayNum' in state
-    const dateArray = this.props.dateArray.slice(0,7);
+    const dateArray = this.props.dateArray.slice(0,5);
     
     // Set colors for chart
     const chartColors = ['black', 'green', 'red', 'orange'];
@@ -37,11 +37,10 @@ export default class DataCharts extends Component {
       curveType: "function",
       legend: {position: "none"},
       colors: chartColors,
-      chartArea: {top: 50, bottom: 50, left: 50, width: '100%'},
+      chartArea: {top: 30, bottom: 20, left: 38, width: '100%'},
       yAxis: {
         viewWindow: {
-            min: 0,
-            max: 200
+            min: 0
         }
     }
     };

@@ -13,7 +13,7 @@ export default class About extends Component {
           <br/><br/>
           <strong>Try it for yourself!</strong> Click the 'Back' button below to return to the login page and use the test user credentials to check it out.
           <br/><br/>
-          <Link to='/'><button>Back</button></Link>
+          <Link to='/'><button className="rbutton">Back</button></Link>
         </p>
       </section>
     )

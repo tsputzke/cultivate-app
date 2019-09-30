@@ -48,7 +48,7 @@ export default class ViewData extends Component {
           </ul>
           <p className="inserted-data-comments">{date.comments}</p>
           <button 
-            className="delete-data" 
+            className="delete-data rbutton" 
             onClick={() => {
               if (window.confirm("Are you sure you want to delete?"))
               deleteByDate(date.room_data_id)

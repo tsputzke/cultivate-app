@@ -32,7 +32,7 @@ export default class Room extends Component {
       })
       .then(res => {
         // Add data to state if data was from X months of startDate
-        let startDate = moment(Date.now()).subtract(1, 'month') 
+        let startDate = moment(Date.now()).subtract(6, 'month') 
         let dateArray = [];
 
         this.state.data.forEach(function(a) {
@@ -66,7 +66,8 @@ export default class Room extends Component {
     return (
       <div className='room'>
         <h1 className='room-name-title center-align'>{(window.sessionStorage.getItem('room_name')).toUpperCase()}</h1>
-        <p className='room-description center-align'>{window.sessionStorage.getItem('room_description')}</p>
+        {!(window.sessionStorage.getItem('room_description') === 'null') ? <p className='room-description center-align'><strong>{window.sessionStorage.getItem('room_description')}</strong></p> : ''}
+        <p className="lastData-title">Most recent five data-points charted:</p>
         <section className="flex-section">
           <div className="logbook">
             <h2 className="logbook-title">Logbook</h2>
@@ -84,18 +85,18 @@ export default class Room extends Component {
               <Link to='/view-data'>
                 <button className="data-button">View Data</button>
               </Link>
+              <button 
+              className="delete-room rbutton"
+              onClick={() => {
+                if (window.confirm("Are you sure you want to delete this room?"))
+                deleteRoom(window.sessionStorage.getItem('room_id'))
+                window.location ='/show-user'
+              }}>
+              Delete Room
+            </button>
             </section>
           </div>
         </section>
-        <button 
-          className="delete-room"
-          onClick={() => {
-            if (window.confirm("Are you sure you want to delete this room?"))
-            deleteRoom(window.sessionStorage.getItem('room_id'))
-            window.location ='/show-user'
-          }}>
-          Delete Room
-        </button>
       </div>
     )
   }

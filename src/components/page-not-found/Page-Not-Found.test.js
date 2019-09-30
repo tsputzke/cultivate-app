@@ -4,24 +4,24 @@ import { BrowserRouter } from 'react-router-dom'
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, configure } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import AddData from './Add-data'
+import PageNotFound from './Page-Not-Found'
 
 configure({adapter: new Adapter()});  
 
-describe(`AddData component`, () => {
+describe(`PageNotFound component`, () => {
   it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(
       <BrowserRouter>
-        <AddData />
+        <PageNotFound />
       </BrowserRouter>,
       div
     )
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  it('renders AddData by default', () => {
-    const wrapper = shallow(<AddData />)
+  it('renders PageNotFound by default', () => {
+    const wrapper = shallow(<PageNotFound />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })

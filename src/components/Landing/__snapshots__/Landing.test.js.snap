@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing component renders Landing by default 1`] = `
+<div
+  className="landing"
+>
+  <h1
+    className="landing-title center-align title-style"
+  >
+    Cultivate
+  </h1>
+  <p
+    className="landing-description"
+  >
+    Grow smarter. Track your grow-room data with Cultivate. To learn more, 
+    <span>
+      <Link
+        to="/about"
+      >
+        <u>
+          click here
+        </u>
+      </Link>
+    </span>
+    .
+  </p>
+  <section
+    className="login"
+  >
+    <form
+      className="login-form"
+      onSubmit={[Function]}
+    >
+      <fieldset>
+        <legend
+          className="strong login-legend"
+        >
+          User Login:
+        </legend>
+        <div>
+          <label
+            htmlFor="user_name"
+          >
+             Username: 
+          </label>
+          <input
+            name="user_name"
+            required={true}
+            type="text"
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="password"
+          >
+            Password: 
+          </label>
+          <input
+            name="password"
+            required={true}
+            type="password"
+          />
+        </div>
+        <button
+          className="login-button"
+          type="submit"
+        >
+          Login
+        </button>
+        <section
+          className="login-info"
+        >
+          <p>
+            New user? 
+            <span>
+              <Link
+                to="/registration"
+              >
+                <u>
+                  register here
+                </u>
+              </Link>
+            </span>
+          </p>
+          <hr />
+          <p>
+            <strong>
+              Login as a test user:
+            </strong>
+             
+            <br />
+             
+            <u>
+              Username:
+            </u>
+             TestUser 
+            <br />
+             
+            <u>
+              Password:
+            </u>
+             testuser1!
+          </p>
+        </section>
+      </fieldset>
+    </form>
+    <div
+      role="alert"
+    />
+  </section>
+</div>
+`;
