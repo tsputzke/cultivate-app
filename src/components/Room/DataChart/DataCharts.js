@@ -12,7 +12,7 @@ const leafIcon = <FontAwesomeIcon icon={faLeaf} />
 export default class DataCharts extends Component {
   render() {
     // Sets number of data points in dateArray based on 'displayNum' in state
-    const dateArray = this.props.dateArray.slice(0,5);
+    const dateArray = this.props.dateArray.reverse().slice(0,5);
     
     // Set colors for chart
     const chartColors = ['black', 'green', 'red', 'orange'];
@@ -26,7 +26,7 @@ export default class DataCharts extends Component {
     
     // Format dateArray data and push to chart
     
-    dateArray.forEach(function(date) {
+    dateArray.reverse().forEach(function(date) {
       let dateAdded = moment.utc(date.date_added).format("MM/DD");
       let dateCo2 = (date.co2) ? date.co2/10 : null;
       data.push([dateAdded, date.temperature, date.rh, dateCo2, date.light])
