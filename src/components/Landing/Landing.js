@@ -41,7 +41,7 @@ export default class Landing extends Component {
           Cultivate  
         </h1>
         <p className='landing-description'>
-          Grow smarter. Track your grow-room data with Cultivate. <span><Link to='/about'><u>Learn more!</u></Link></span>
+          Grow smarter. Track your grow-room data with Cultivate. <span><Link to='/about'>Learn more!</Link></span>
         </p>
         <section className="login">
           <form
