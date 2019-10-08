@@ -11,9 +11,7 @@ export default class About extends Component {
           <br/><br/>
           Quickly create rooms, log data, and access your data with ease. Whether you are trying to keep that orchid alive that your grandma gave you for your birthday, or you manage a production greenhouse, Cultivate has got your back. 
           <br/><br/>
-          <strong>Try it for yourself!</strong> Click the 'Back' button below to return to the login page and use the test user credentials to check it out.
-          <br/><br/>
-          <Link to='/'><button className="rbutton">Back</button></Link>
+          <Link to='/'><strong>Try it for yourself!</strong></Link>
         </p>
       </section>
     )

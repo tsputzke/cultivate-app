@@ -41,8 +41,7 @@ export default class Landing extends Component {
           Cultivate  
         </h1>
         <p className='landing-description'>
-          Grow smarter. Track 
-          your grow-room data with Cultivate. To learn more, <span><Link to='/about'><u>click here</u></Link></span>. 
+          Grow smarter. Track your grow-room data with Cultivate. <span><Link to='/about'><u>Learn more!</u></Link></span>
         </p>
         <section className="login">
           <form
@@ -61,9 +60,9 @@ export default class Landing extends Component {
               </div>
               <button className="login-button" type="submit">Login</button>
               <section className="login-info">
-                <p>New user? <span><Link to='/registration'><u>register here</u></Link></span></p>
+                <p><Link to='/registration'><u>New User?</u></Link></p>
                 <hr />
-                <p><strong>Login as a test user:</strong> <br /> <u>Username:</u> TestUser <br /> <u>Password:</u> testuser1!</p>
+                <p><strong>To login as a test user:</strong> <br /> <u>Username:</u> TestUser <br /> <u>Password:</u> testuser1!</p>
               </section>
             </fieldset>
           </form>

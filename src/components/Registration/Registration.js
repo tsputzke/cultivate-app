@@ -71,7 +71,7 @@ export default class Registration extends Component {
                 </tbody>
               </table>
             <button className="registration-button" type="submit">Submit</button>
-            <p>Already a user? <span><Link to='/'>login here</Link></span></p>
+            <p><Link to='/'>Already a User?</Link></p>
             <hr />
             <div className="password-rules">
               <strong>Password must contain: </strong>
