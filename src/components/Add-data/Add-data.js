@@ -36,14 +36,17 @@ export default class AddData extends Component {
       body: JSON.stringify(newDataObject)
     })
       // If call is successful
-      .then(res =>
+      .then(res => {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      )
+      })
       // Show room if call is successful
       .then(window.location= '/show-room')
       // .then(this.props.history.push(`/show-room`))
+      .catch(err => {
+				console.log(err);
+			});
   };
 
   render() {
