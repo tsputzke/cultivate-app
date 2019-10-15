@@ -383,6 +383,25 @@ Content styles (Main Module)
   overflow-y: hidden; 
 }
 
+.chart-table {
+  margin: auto;
+  width: 250px;
+  padding: 0;
+  border: none;
+  text-align: left;
+  margin-left: 50px;
+}
+
+.chart-table td {
+  padding: 0;
+  border: none;
+  text-align: left;
+}
+
+.chart-legend {
+  width: 200px;
+  margin-left: 10px;
+}
 
 /* User */
 .user {
@@ -680,6 +699,12 @@ place all the mobile tables styles below this line
   }
 
   /* DataCharts */
+  .chart-table {
+    position:relative;
+    margin:0 auto;
+    left:50px;
+    padding-top: 10px;
+  }
 
   /* Page-Not-Found */
   .page-not-found-title {
