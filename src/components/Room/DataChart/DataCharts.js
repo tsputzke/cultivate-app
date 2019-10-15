@@ -89,15 +89,17 @@ export default class DataCharts extends Component {
             width="100%"
           />
         </div>
-        <table className="chart-table">
-          <legend className= "chart-legend strong">Five date lows and highs: </legend>
-          <tbody>
-            <tr><td><span style={{color: chartColors[0]}}>{leafIcon} </span> <strong>Temp (C): </strong></td><td>{lowVal('temp')}, {highVal('temp')}</td></tr>
-            <tr><td><span style={{color: chartColors[1]}}>{leafIcon} </span> <strong>RH (%): </strong></td><td>{lowVal('rh')}, {highVal('rh')}</td></tr>
-            <tr><td><span style={{color: chartColors[2]}}>{leafIcon} </span> <strong>CO<sub>2</sub> (PPM): </strong></td><td>{lowVal('co2')}, {highVal('co2')}</td></tr>
-            <tr><td><span style={{color: chartColors[3]}}>{leafIcon} </span> <strong>Light (PPFD): </strong></td><td>{lowVal('light')}, {highVal('light')}</td></tr>
-          </tbody>
-        </table>
+        <div className="chart-table-div">
+          <p>Five date lows and highs: </p>
+          <table className="chart-table">
+            <tbody>
+              <tr><td><span style={{color: chartColors[0]}}>{leafIcon} </span> <strong>Temp (c): </strong></td><td>{lowVal('temp')}, {highVal('temp')}</td></tr>
+              <tr><td><span style={{color: chartColors[1]}}>{leafIcon} </span> <strong>RH (%): </strong></td><td>{lowVal('rh')}, {highVal('rh')}</td></tr>
+              <tr><td><span style={{color: chartColors[2]}}>{leafIcon} </span> <strong>CO<sub>2</sub> (ppm): </strong></td><td>{lowVal('co2')}, {highVal('co2')}</td></tr>
+              <tr><td><span style={{color: chartColors[3]}}>{leafIcon} </span> <strong>Light (ppfd): </strong></td><td>{lowVal('light')}, {highVal('light')}</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }
