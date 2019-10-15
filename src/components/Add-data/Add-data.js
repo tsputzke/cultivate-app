@@ -64,15 +64,15 @@ export default class AddData extends Component {
                   </tr>
                   <tr className="short-input">
                     <td><label htmlFor="temperature">Temp (C): </label></td>
-                    <td><input required  type="text" name="temperature"/></td>
+                    <td><input required  type="number" name="temperature"/></td>
                     <td><label htmlFor="rh">RH (%): </label></td>
-                    <td><input required type="text" name="rh" /></td>
+                    <td><input required type="number" name="rh" /></td>
                   </tr>
                   <tr className="short-input">
                     <td><label htmlFor="co2">CO2 (ppm): </label></td>
-                    <td><input required type="text" name="co2" /></td>
+                    <td><input required type="number" name="co2" /></td>
                     <td><label htmlFor="light">Light (ppfd): </label></td>
-                    <td><input required type="text" name="light" /></td>
+                    <td><input required type="number" name="light" /></td>
                   </tr>
                 </tbody>
               </table>
