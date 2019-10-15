@@ -65,7 +65,6 @@ export default class Room extends Component {
     const hasData = this.state.dateArray
     return (
       <div className='room'>
-        {!(window.sessionStorage.getItem('room_description') === 'null') ? <p className='room-description center-align'><strong>{window.sessionStorage.getItem('room_description')}</strong></p> : ''}
         <section className="flex-section">
           <div className="logbook">
             <h2 className="logbook-title">Logbook</h2>
@@ -73,6 +72,7 @@ export default class Room extends Component {
           </div>
           <div className="right-div">
             <h1 className='room-name-title center-align'>{(window.sessionStorage.getItem('room_name')).toUpperCase()}</h1>
+            {!(window.sessionStorage.getItem('room_description') === 'null') ? <p className='room-description center-align'><strong>{window.sessionStorage.getItem('room_description')}</strong></p> : ''}
             {(hasData.length > 0) ? (
               <DataCharts dateArray={this.state.dateArray} />
             ) : <img className="no-chart-data" src={NothingImg} alt="The word 'Nothing' written on a chalkboard" />}
