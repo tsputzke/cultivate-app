@@ -396,9 +396,11 @@ Content styles (Main Module)
 }
 
 .chart-table-div p {
-  padding: 5px;
+  padding: 5px 0;
   width: 200px;
   margin: auto;
+  position:relative;
+  right:10px;
 }
 
 .chart-table td {
