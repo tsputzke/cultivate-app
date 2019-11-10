@@ -10,7 +10,7 @@ Is a short set of CSS rules that resets the styling of all HTML elements to a co
   border: 0;
   font-size: 100%;
   font-family: Nunito-Sans;
-  background-color: #E9E7DA;
+  /* background-color: #E9E7DA; */
   line-height: 1.5;
   /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
   box-sizing: border-box;
@@ -57,11 +57,22 @@ General styles (General Module, wrapping around the modules below)
 (the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules below (h2, h3, h4, h5, h6, p, a, ul, li))
 */
 
+body {
+  background: url(../../images/brick-background.png) top center no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
 a {
+  transition: .2s ease;
   text-decoration: none;
-  color: #49274A;
-  /* color: #373F27;  */
+  color: #5F0F4E;
   font-weight: 700;
+}
+
+a:hover {
+  cursor: pointer;
+  color: darkred;
 }
 
 li {
@@ -100,10 +111,12 @@ hr {
   font-size: .9em;
   color: red;
   text-align: center;
+  background-color: #E9E7DA;
   border: 1px solid black;
 }
 
 button:hover {
+  cursor: pointer;
   background-color: #373F27;
   color: white;
 }
@@ -125,10 +138,11 @@ button {
 
 .rbutton {
   color: white;
-  background-color: #AF473C;
+  background-color: darkred;
 }
 
 .rbutton:hover {
+  cursor: pointer;
   background-color: #49274A;
 }
 
@@ -189,19 +203,25 @@ Content styles (Main Module)
 }
 
 .landing {
+  background: url(../../images/landing-background.png) top center no-repeat;
+  background-size: cover;
   height: 100vh;
-  margin: auto;
   padding-top: 20px;
+}
+
+.landing-container {
   width: 80%;
+  margin: auto;
 }
 
 /* LoginForm */
 .login {
+  background-color: #E9E7DA;
   font-size: .9em;
   padding: 20px;
   text-align: center;
   margin: auto;
-  border: 3px solid #636B46;
+  border: 2px solid black;
   width: 250px;
   height: 340px;
 }
@@ -232,10 +252,11 @@ Content styles (Main Module)
 }
 
 .registration-form {
+  background-color: #E9E7DA;
   padding: 30px 15px;
   text-align: center;
   margin: auto;
-  border: 3px solid #636B46;
+  border: 2px solid black;
   width: 300px;
   height: 420px;
 }
@@ -269,10 +290,8 @@ Content styles (Main Module)
 
 /* Room  */
 .room {
-  height: 100vh;
   margin: 0 auto 80px;
   padding-top: 80px;
-  width: 300px;
 }
 
 .room-name-title {
@@ -416,23 +435,21 @@ Content styles (Main Module)
 
 /* User */
 .user {
-  margin: 0 auto 80px;
-  height: 100vh;
-  padding-top: 80px;
-  width: 80%;
+  margin: 80px auto;
 }
 
 .user-section {
+  background-color: #E9E7DA;
   padding: 15px 30px;
   text-align: center;
   margin: auto;
-  border: 3px solid #636B46;
+  border: 2px solid black;
   width: 250px;
   height: 250px;
 }
 
 .user_name-title {
-  color: #AF473C;
+  color: darkred;
   font-family: Halant;
 }
 
@@ -502,7 +519,7 @@ h1 {
 
 .add-data {
   margin: auto;
-  padding-top: 80px;
+  margin-top: 80px;
   width: 300px;
 }
 
@@ -521,7 +538,8 @@ h1 {
   padding: 20px;
   text-align: center;
   margin: auto;
-  border: 3px solid #636B46;
+  border: 2px solid black;
+  background-color: #E9E7DA;
   height: 450px;
 }
 
@@ -548,20 +566,19 @@ table {
 /* View Data */
 .view-data {
   text-align: center;
-  padding: 80px 0;
   min-height: 200px;
-  margin: auto;
+  margin: 80px auto;
   width: 300px;
 }
 
 h2 {
   font-size: 1.2em;
-  color: #373F27;
+  color: #292f1d;
 }
 
 .inserted-data {
-  border: 3px solid #373F27;
-  background-color: white;
+  border: 2px solid black;
+  background-color: #E9E7DA;
   border-radius: 3px;
   padding: 5px;
   margin: 10px 0;
@@ -580,7 +597,7 @@ h2 {
 .inserted-data p, 
 .inserted-data li,
 .inserted-data span {
-  background-color: white;
+  background-color: #E9E7DA;
 }
 
 .view-data-table {
@@ -597,11 +614,18 @@ table, tr, th, td {
 }
 
 /* About  */
-.about {
-  text-align: center;
-  margin: auto;
-  padding-top: 60px;
+
+.about-section {
   height: 100vh;
+}
+
+.about {
+  padding: 20px;
+  border: 2px solid black;
+  background-color: #E9E7DA;
+  height: auto;
+  text-align: center;
+  margin: 60px auto;
   width: 85%;
 }
 
@@ -634,7 +658,7 @@ place all the mobile tables styles below this line
     .user,
     .add-data,
     .view-data {
-      padding-top: 100px;
+      margin-top: 100px;
     }
 
     /* Nav */
@@ -643,17 +667,6 @@ place all the mobile tables styles below this line
       border-top: none;
       height: 52px;
     }
-/*   
-  
-    .nav-links {
-      display: flex;
-      justify-content: flex-start;
-    }
-  
-    .left-nav {
-      flex: 1;
-      text-align: left;
-    } */
   
     .nav a {
       margin: 10px 50px;
@@ -665,6 +678,7 @@ place all the mobile tables styles below this line
     }
   
     .nav a:hover {
+      cursor: pointer;
       color: black;
     }
 
@@ -672,6 +686,14 @@ place all the mobile tables styles below this line
 
   .landing {
     padding-top: 100px;
+  }
+
+  .landing-title {
+    font-size: 2.5em;
+  }
+  
+  .landing-description {
+    font-size: 1.2em;
   }
 
   /* Registration */
@@ -717,9 +739,50 @@ place all the mobile tables styles below this line
     padding-top: 5px;
   }
 
+  /* View-data */
+
+  .view-data {
+    text-align: center;
+    margin: 80px auto;
+    width: 60%;
+  }
+
+  .inserted-data {
+    border: 2px solid black;
+    padding: 3%;
+    margin: 10px 0;
+    display: flex;
+  }
+
+  .data-div {
+    display: flex;
+  }
+
+  .inserted-data h2 {
+    font-size: 1em;
+    color: darkred;
+  }
+
+  .inserted-data-ul {
+    font-size: .9em;
+  }
+
+  .delete-data {
+    align-self: center;
+    margin: 0;
+  }
+  
+  .inserted-data-comments {
+    background-color: white;
+    border: 1px solid #373F27;
+    text-align: left;
+    margin: 10px 30px;
+    width: 70%;
+  }
+
   /* Page-Not-Found */
   .page-not-found-title {
-    padding-top: 200px;
+    margin-top: 200px;
     font-size: 1.5em;
   }
 }

@@ -39,13 +39,15 @@ export default class ViewData extends Component {
     const insertData = this.state.dateArray.reverse().map((date, i) => {
       return (
         <section className="inserted-data" key={i}>
-          <h2>{moment.utc(date.date_added).format("MM / DD / YY")}</h2>
-          <ul className="inserted-data-ul">
-            <li><span className="strong">Temp (C): </span>{date.temperature}</li>
-            <li><span className="strong">RH (%): </span>{date.rh}</li>
-            <li><span className="strong">CO2 (ppm): </span>{date.co2}</li>
-            <li><span className="strong">Light (ppfd): </span>{date.light}</li>
-          </ul>
+          <div id="data-div">
+            <h2>{moment.utc(date.date_added).format("MM / DD / YY")}</h2>
+            <ul className="inserted-data-ul">
+              <li><span className="strong">Temp (C): </span>{date.temperature}</li>
+              <li><span className="strong">RH (%): </span>{date.rh}</li>
+              <li><span className="strong">CO2 (ppm): </span>{date.co2}</li>
+              <li><span className="strong">Light (ppfd): </span>{date.light}</li>
+            </ul>
+          </div>
           <p className="inserted-data-comments">{date.comments}</p>
           <button 
             className="delete-data rbutton" 
