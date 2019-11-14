@@ -709,6 +709,7 @@ place all the mobile tables styles below this line
 
   /* Room */
   .room {
+    padding-top: 0;
     width: 95%;
   }
 
@@ -723,6 +724,7 @@ place all the mobile tables styles below this line
   }
 
   .logbook {
+    align-self: center;
     max-width: 700px;
     margin: 0 50px 0 80px;
   }
