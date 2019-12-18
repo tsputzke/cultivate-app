@@ -58,7 +58,7 @@ General styles (General Module, wrapping around the modules below)
 */
 
 body {
-  background: url(../../images/brick-background.png) top center no-repeat;
+  background: url(../../images/textured-background.png) top center no-repeat;
   background-size: cover;
   min-height: 100vh;
 }
@@ -154,7 +154,7 @@ Nav styles (Main Module)
 /* Nav */
 .nav {
   height: 45px;
-  background-color: #636B46;
+  background-color: #373F27;
   text-align: center;
   position: fixed;
   padding: 6px;
@@ -166,7 +166,8 @@ Nav styles (Main Module)
 }
 
 .nav * {
-  background-color: #636B46;;
+  background-color: #373F27;
+  ;
 }
 
 .nav a {
@@ -669,6 +670,7 @@ place all the mobile tables styles below this line
     }
   
     .nav a {
+      color: white;
       margin: 10px 50px;
       padding: 10px;
       border-radius: 5%;
