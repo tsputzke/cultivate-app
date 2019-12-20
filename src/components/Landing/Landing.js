@@ -3,15 +3,23 @@ import { Link } from 'react-router-dom'
 import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
 import UserContext from '../../context/user-context'
+import Loader from 'react-loader-spinner'
 
 export default class Landing extends Component {
   static contextType = UserContext
-  state = { error: null }
+  state = { 
+    error: null,
+    loaded: false 
+  };
+
+  componentDidMount() {
+    this.setState({ loaded: true })
+  }
   
   handleLogin = e => {
     e.preventDefault();
 
-    this.setState({ error: null })
+    this.setState({ error: null, loaded: false })
     const { user_name, password } = e.target
 
     const user = {
@@ -35,9 +43,11 @@ export default class Landing extends Component {
     }
   render() {
     const { error } = this.state
+    const loaded = this.state.loaded
     return (
       <div className='landing'>
-        <div className='landing-container'>
+        {(!loaded) ? (<Loader id='loader' type="Oval" color="black" height={150} width={150} style={{ 'text-align': 'center', 'padding-top': '10%'}}/>) : 
+        (<div className="loading-wrapper">
           <h1 className='landing-title center-align title-style'>
             Cultivate  
           </h1>
@@ -72,7 +82,8 @@ export default class Landing extends Component {
             </div>
           </section>
         </div>
-      </div>
+        )}
+      </div>  
     )
   }
 }
