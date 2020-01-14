@@ -17,7 +17,7 @@ export default class Registration extends Component {
 
     // Confirm username is greater than 5 characters in length
     if (user_name.value.length < 5) {
-      this.setState({ error: 'Username must be 8+ characters' })
+      this.setState({ error: 'Username must be 5+ characters' })
       // alert('username must be greater than 5 characters in length')
       // window.location ='/registration'
       throw Error
