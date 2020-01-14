@@ -76,7 +76,7 @@ export default class Registration extends Component {
             <div className="password-rules">
               <strong>Password must contain: </strong>
               <ul>
-                <li>8+ characters.</li>
+                <li>5+ characters.</li>
                 <li>At least 1 number.</li>
                 <li>At least 1 special character.</li>
               </ul>
