@@ -60,7 +60,8 @@ General styles (General Module, wrapping around the modules below)
 body {
   background: url(../../images/textured-background.png) top center no-repeat;
   background-size: cover;
-  min-height: 100vh;
+  height: 100%;
+  width: 100%;
 }
 
 a {
