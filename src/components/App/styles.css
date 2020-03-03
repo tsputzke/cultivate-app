@@ -58,10 +58,8 @@ General styles (General Module, wrapping around the modules below)
 */
 
 body {
-  background: url(../../images/textured-background.png) top center no-repeat;
+  background: url(../../images/textured-background.png) top center no-repeat fixed;
   background-size: cover;
-  height: 100%;
-  width: 100%;
 }
 
 a {

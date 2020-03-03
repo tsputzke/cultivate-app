@@ -46,7 +46,7 @@ export default class Landing extends Component {
     const loaded = this.state.loaded
     return (
       <div className='landing'>
-        {(!loaded) ? (<Loader id='loader' type="Oval" color="black" height={150} width={150} style={{ 'text-align': 'center', 'padding-top': '10%'}}/>) : 
+        {(!loaded) ? (<Loader id='loader' type="Oval" color="black" height={150} width={150} style={{ 'textAlign': 'center', 'paddingTop': '10%'}}/>) : 
         (<div className="loading-wrapper">
           <h1 className='landing-title center-align title-style'>
             Cultivate  
