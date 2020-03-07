@@ -19,9 +19,9 @@ export default class Nav extends Component {
     return (
       <nav className='nav'>
         <section className='nav-links'>
-          <div className="nav-button left-nav"><Link to='/about'>About.</Link></div>
+          <div className="nav-button left-nav"><Link to='/about'>About</Link></div>
           <div className="home-icon right-nav"><Link to='/show-user'>{homeIcon}</Link></div>
-          <div className="nav-button right-nav"><Link onClick={this.handleLogoutClick} to='/'>Logout.</Link></div>
+          <div className="nav-button right-nav"><Link onClick={this.handleLogoutClick} to='/'>Logout</Link></div>
         </section>
       </nav>
     )
